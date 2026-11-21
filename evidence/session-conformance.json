@@ -1,0 +1,498 @@
+{
+  "format": "cayapa-host-session-conformance-1",
+  "contract": "host-session/1",
+  "coreVersion": "0.3",
+  "profile": "direct/0.3",
+  "status": "passed",
+  "generatedAt": "2026-11-21T05:37:55Z",
+  "runtime": {
+    "python": "3.12.14",
+    "cryptography": "50.0.0",
+    "tls": "OpenSSL 3.5.8 25 Aug 2026"
+  },
+  "implementations": {
+    "left-session": {
+      "executable": "node",
+      "entryFiles": [
+        {
+          "name": "session.mjs",
+          "sha256": "3d1b426e17a4c092fcb9d1a93fcddab7779d2e1fd52a3adcc599409e45829a66"
+        }
+      ]
+    },
+    "right-session": {
+      "executable": "python3",
+      "entryFiles": [
+        {
+          "name": "python3",
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        },
+        {
+          "name": "session.py",
+          "sha256": "4fad3074047834c10b32944a9d1495d4d9910d3bdd5c3073d906061ec6271c95"
+        }
+      ]
+    },
+    "left-wire": {
+      "executable": "node",
+      "entryFiles": [
+        {
+          "name": "operator.mjs",
+          "sha256": "47d458bd11a9a77050759ae3a198750713f920036c6e8185d7aeb9bad4363447"
+        }
+      ]
+    },
+    "right-wire": {
+      "executable": "python3",
+      "entryFiles": [
+        {
+          "name": "python3",
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        },
+        {
+          "name": "operator.py",
+          "sha256": "0cc1e3384d0c885d9dd6b1e894b87c24268c58528455950cbc9a6ef249b1dcdb"
+        }
+      ]
+    }
+  },
+  "sourceHashes": [
+    {
+      "path": "core/0.3.md",
+      "sha256": "3632baa7154ac00a84ce8f322008149c150ff1219d1b85e450749a7f5d42e123"
+    },
+    {
+      "path": "profiles/direct-0.3.md",
+      "sha256": "0ef64fdcb34a59f6c439adaabb23b4f0d42d3754a882f322807e101b8cf0dd0f"
+    },
+    {
+      "path": "profiles/durable-conversation-0.2.md",
+      "sha256": "e5ad2d459d3197233ab9de407bfc9802480e2900fb89fb68ce50d37a245279d0"
+    },
+    {
+      "path": "bindings/http-message-0.3.md",
+      "sha256": "5941e4509eb8755f9ce6d9409112dbf656677e98ec4aad0f468827936686009f"
+    },
+    {
+      "path": "security/http-signatures-0.3.md",
+      "sha256": "67a6e916a5795079d2dee27a7d903378ac724fd01a3d877a12060bd361ed1622"
+    },
+    {
+      "path": "schemas/direct-0.3.schema.json",
+      "sha256": "814515cab16f8d7e6c6060b21c8c65036883406066663b0dab56733c948ecccd"
+    },
+    {
+      "path": "vectors/direct-signatures.json",
+      "sha256": "dbb297361f2b1405ce07880fcdc4d32778ea3aa9ce5b077e3317a1e9f01d6036"
+    },
+    {
+      "path": "conformance/direct-fixture.md",
+      "sha256": "2ddb23800cc23cce41eff8ef679c26f2cbf274e2c50f1db40b4ad409efe9be75"
+    },
+    {
+      "path": "conformance/requirements.txt",
+      "sha256": "56e6301f491d336997805ec0e824b163ce5797a708440d68f52b6c3e60d63909"
+    },
+    {
+      "path": "conformance/run_direct.py",
+      "sha256": "8d3044eca0e84a1e0dc62e6347601fef39f884170555c0b55d597538eee09151"
+    },
+    {
+      "path": "conformance/run.py",
+      "sha256": "d00100ef52b517618e45374b5c49ee704b3e28ce6c24d062b046fab3f1807969"
+    },
+    {
+      "path": "extensions/host-session-1.md",
+      "sha256": "32f2d6d673dc59e9805651eb65f70282d7fbbbd7ca59d2377d08bce3e6a72586"
+    },
+    {
+      "path": "proposals/session-identity.md",
+      "sha256": "08845da91b35dc78492b426fcd9b0ee50be4ddbc26ba50743af3357eea353489"
+    },
+    {
+      "path": "conformance/session-fixture.md",
+      "sha256": "855c2a104b9612ad143ecf2f9c53eced2e219e2f718afeaa1ad9c77696d475e4"
+    },
+    {
+      "path": "conformance/run_sessions.py",
+      "sha256": "677652d9e311bd3554e7adb746237abb62cb06ad7b934fbe143a847a70712c4d"
+    }
+  ],
+  "fixture": {
+    "transport": "verified HTTPS on loopback",
+    "independentOwnerKeys": true,
+    "independentActorKeys": true,
+    "separateLifecycleStores": true,
+    "manualIntroduction": true,
+    "nativeSendersBothDirections": true,
+    "mcpRequired": false,
+    "dnsDiscoveryRequired": false,
+    "deterministicLocalAndWireAfterCommitFaults": true,
+    "productionDeployed": false,
+    "actualModelHosts": false
+  },
+  "summary": {
+    "passed": 34,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 17024
+  },
+  "limitations": [
+    "Two project-isolated lifecycle implementations and existing wire operators; not independent external adoption",
+    "Privileged local fixture controls are not a required native API or public enrollment service",
+    "Complete copies of all controlling state and keys are indistinguishable; no global fencing or rollback-resistant custody claim",
+    "Local retirement or rotation is not receiver admission or delegation withdrawal",
+    "Custody is not a model read, wake, reply or action; no real host was activated",
+    "No new Direct/0.3 envelope, capability or durable/0.2 wire behavior"
+  ],
+  "cases": [
+    {
+      "lane": "left",
+      "name": "distinct-new-same-owner-sessions",
+      "requirements": [
+        "SI-1",
+        "SI-3"
+      ],
+      "status": "passed",
+      "durationMs": 202
+    },
+    {
+      "lane": "left",
+      "name": "lost-creation-result-and-intent-conflict",
+      "requirements": [
+        "SI-1",
+        "SI-2"
+      ],
+      "status": "passed",
+      "durationMs": 419
+    },
+    {
+      "lane": "left",
+      "name": "concurrent-new-sessions",
+      "requirements": [
+        "SI-1"
+      ],
+      "status": "passed",
+      "durationMs": 294
+    },
+    {
+      "lane": "left",
+      "name": "separate-process-and-concurrent-resume",
+      "requirements": [
+        "SI-2"
+      ],
+      "status": "passed",
+      "durationMs": 117
+    },
+    {
+      "lane": "left",
+      "name": "missing-copied-descriptor-and-wrong-control",
+      "requirements": [
+        "SI-2",
+        "SI-3"
+      ],
+      "status": "passed",
+      "durationMs": 377
+    },
+    {
+      "lane": "left",
+      "name": "owner-key-and-session-isolation",
+      "requirements": [
+        "SI-1",
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 276
+    },
+    {
+      "lane": "left",
+      "name": "exact-intent-retention-without-authority-renewal",
+      "requirements": [
+        "SI-2",
+        "SI-4",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 444
+    },
+    {
+      "lane": "left",
+      "name": "explicit-fork-without-inherited-state",
+      "requirements": [
+        "SI-1",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 285
+    },
+    {
+      "lane": "left",
+      "name": "authorized-rotation-and-stale-control-refusal",
+      "requirements": [
+        "SI-2",
+        "SI-3",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 335
+    },
+    {
+      "lane": "left",
+      "name": "terminal-retirement-retains-uncertainty",
+      "requirements": [
+        "SI-1",
+        "SI-2",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 615
+    },
+    {
+      "lane": "left",
+      "name": "bounded-state-refuses-without-eviction",
+      "requirements": [
+        "SI-2",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 910
+    },
+    {
+      "lane": "left",
+      "name": "closed-bounded-control-input",
+      "requirements": [
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 555
+    },
+    {
+      "lane": "right",
+      "name": "distinct-new-same-owner-sessions",
+      "requirements": [
+        "SI-1",
+        "SI-3"
+      ],
+      "status": "passed",
+      "durationMs": 157
+    },
+    {
+      "lane": "right",
+      "name": "lost-creation-result-and-intent-conflict",
+      "requirements": [
+        "SI-1",
+        "SI-2"
+      ],
+      "status": "passed",
+      "durationMs": 413
+    },
+    {
+      "lane": "right",
+      "name": "concurrent-new-sessions",
+      "requirements": [
+        "SI-1"
+      ],
+      "status": "passed",
+      "durationMs": 267
+    },
+    {
+      "lane": "right",
+      "name": "separate-process-and-concurrent-resume",
+      "requirements": [
+        "SI-2"
+      ],
+      "status": "passed",
+      "durationMs": 86
+    },
+    {
+      "lane": "right",
+      "name": "missing-copied-descriptor-and-wrong-control",
+      "requirements": [
+        "SI-2",
+        "SI-3"
+      ],
+      "status": "passed",
+      "durationMs": 392
+    },
+    {
+      "lane": "right",
+      "name": "owner-key-and-session-isolation",
+      "requirements": [
+        "SI-1",
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 368
+    },
+    {
+      "lane": "right",
+      "name": "exact-intent-retention-without-authority-renewal",
+      "requirements": [
+        "SI-2",
+        "SI-4",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 463
+    },
+    {
+      "lane": "right",
+      "name": "explicit-fork-without-inherited-state",
+      "requirements": [
+        "SI-1",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 311
+    },
+    {
+      "lane": "right",
+      "name": "authorized-rotation-and-stale-control-refusal",
+      "requirements": [
+        "SI-2",
+        "SI-3",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 411
+    },
+    {
+      "lane": "right",
+      "name": "terminal-retirement-retains-uncertainty",
+      "requirements": [
+        "SI-1",
+        "SI-2",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 614
+    },
+    {
+      "lane": "right",
+      "name": "bounded-state-refuses-without-eviction",
+      "requirements": [
+        "SI-2",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 914
+    },
+    {
+      "lane": "right",
+      "name": "closed-bounded-control-input",
+      "requirements": [
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 605
+    },
+    {
+      "lane": "left-to-right",
+      "name": "new-and-fork-identity-do-not-grant-admission",
+      "requirements": [
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 413
+    },
+    {
+      "lane": "left-to-right",
+      "name": "forged-substituted-and-wrong-destination-proof",
+      "requirements": [
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 448
+    },
+    {
+      "lane": "left-to-right",
+      "name": "stable-resume-with-separate-delegation-renewal",
+      "requirements": [
+        "SI-2",
+        "SI-3",
+        "SI-6"
+      ],
+      "status": "passed",
+      "durationMs": 542
+    },
+    {
+      "lane": "left-to-right",
+      "name": "lost-wire-result-resume-rotation-exact-retry",
+      "requirements": [
+        "SI-2",
+        "SI-5",
+        "SI-6"
+      ],
+      "status": "passed",
+      "durationMs": 899
+    },
+    {
+      "lane": "left-to-right",
+      "name": "withdrawal-survives-receiver-restart-and-local-resume",
+      "requirements": [
+        "SI-4",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 1008
+    },
+    {
+      "lane": "right-to-left",
+      "name": "new-and-fork-identity-do-not-grant-admission",
+      "requirements": [
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 491
+    },
+    {
+      "lane": "right-to-left",
+      "name": "forged-substituted-and-wrong-destination-proof",
+      "requirements": [
+        "SI-3",
+        "SI-4"
+      ],
+      "status": "passed",
+      "durationMs": 519
+    },
+    {
+      "lane": "right-to-left",
+      "name": "stable-resume-with-separate-delegation-renewal",
+      "requirements": [
+        "SI-2",
+        "SI-3",
+        "SI-6"
+      ],
+      "status": "passed",
+      "durationMs": 493
+    },
+    {
+      "lane": "right-to-left",
+      "name": "lost-wire-result-resume-rotation-exact-retry",
+      "requirements": [
+        "SI-2",
+        "SI-5",
+        "SI-6"
+      ],
+      "status": "passed",
+      "durationMs": 1029
+    },
+    {
+      "lane": "right-to-left",
+      "name": "withdrawal-survives-receiver-restart-and-local-resume",
+      "requirements": [
+        "SI-4",
+        "SI-5"
+      ],
+      "status": "passed",
+      "durationMs": 1061
+    }
+  ]
+}

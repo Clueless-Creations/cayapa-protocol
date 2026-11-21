@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "contract": "host-session/1",
+  "profile": "direct/0.3",
+  "passed": 34,
+  "failed": 0,
+  "skipped": 0,
+  "copiedStandaloneSpecification": true,
+  "independentlyCopiedImplementations": true,
+  "implementationHashes": {
+    "left-session": "3d1b426e17a4c092fcb9d1a93fcddab7779d2e1fd52a3adcc599409e45829a66",
+    "right-session": "4fad3074047834c10b32944a9d1495d4d9910d3bdd5c3073d906061ec6271c95",
+    "left-wire": "47d458bd11a9a77050759ae3a198750713f920036c6e8185d7aeb9bad4363447",
+    "right-wire": "0cc1e3384d0c885d9dd6b1e894b87c24268c58528455950cbc9a6ef249b1dcdb"
+  },
+  "provenanceHashes": {
+    "node": "aed596cbf50792aacac93821f4092c623d0cb139306cccfeabda61c3bc7ac65e",
+    "python": "d5824661f04c8dda623dd410c26a23497a4107e12ab8374c07fd992a1fc6189c"
+  },
+  "nodeVersion": "v24.22.3",
+  "sourceReportSha256": "1e6f9e8fac98b1ecced0a0e62b2881269654bdb03b3dc5f976382ccc22c4ba9a",
+  "productionDeployed": false,
+  "actualModelHosts": false
+}

@@ -1,0 +1,53 @@
+{
+  "reportFormat": "cayapa-client-installation-1",
+  "runtime": "3.12.14",
+  "platform": "Linux x86_64",
+  "packageVersion": "0.1.0a1",
+  "protocolVersion": "0.2",
+  "sourceArchive": {
+    "name": "cayapa_cli-0.1.0a1.tar.gz",
+    "sha256": "53a9fea5e4b5eea4dab2f3585d12ca54a5eaaffae7c01cc60ca1063417ed0679"
+  },
+  "wheel": {
+    "name": "cayapa_cli-0.1.0a1-py3-none-any.whl",
+    "sha256": "fc279270128447b9c38725c696fbb524b364dad503fe7bc6af8e44ea17f88720"
+  },
+  "builtFromExtractedSourceArchive": true,
+  "freshVenvInstall": true,
+  "runtimeDependencies": [],
+  "versionOutput": "cayapa 0.1.0a1 (protocol 0.2)",
+  "helpInvoked": true,
+  "installedPackageTests": {
+    "count": 19,
+    "passed": true,
+    "isolatedTestsCopy": true,
+    "subprocessSourcePathAbsent": true,
+    "installedModulePathVerified": true,
+    "observedAt": "2026-11-20T02:49:57.790406+00:00"
+  },
+  "lifecycle": {
+    "sameVersionReinstallation": true,
+    "uninstallRemovesConsoleCommand": true,
+    "reinstallAndUninstallPreserveCallerFiles": true,
+    "finalReinstallation": true,
+    "futureVersionMigrationTested": false
+  },
+  "sourceSha256": {
+    ".gitignore": "2b933c6b0dc79a9aaf0a8e68a0112129fc4cf2db178935c667925f60f11454c1",
+    "MANIFEST.in": "6614025940a4265119f76e450f169d402cb3c6172a673ec8673c4f0ab7a76bcf",
+    "PROVENANCE.md": "4678dc44d067fddf436b6bf32e86427850769ceca0d363a2e411bc2ea7655b59",
+    "README.md": "39617737d4963de83080908a3bc9d163cb355897771397eee07c7443fe4a679e",
+    "pyproject.toml": "abe308173c72846446c505f47f9eb74f6115161e1605637aa0cdca8498ef628a",
+    "src/cayapa_cli/__init__.py": "966bd47e37aa6e36ec9c3d8f2e552365ba84199aeaeb2503eadd8b66c33ad5a9",
+    "src/cayapa_cli/__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7",
+    "src/cayapa_cli/client.py": "2f7b1d96be5529c76b0008ac2ccc08795c9d38999435c04fd76e70000f517ac4",
+    "src/cayapa_cli/jsonio.py": "1d307c6caae26b33cef1f34a6e92baa78e4b6ef5c2c17da0aebf8f66c4b88172",
+    "src/cayapa_cli/main.py": "08fe5817f7787bba2d87dc897aa2430b68edabbc0326af4eab8dc93ed62436ee",
+    "tests/test_client.py": "14fde7626ab6d3829ad3267e5d7c1a9847954529bf786f878e37eb735997f6d3"
+  },
+  "limits": [
+    "Linux x86_64 and CPython3.12.14 were exercised; other runtimes/platforms are unverified.",
+    "No public registry publication or license choice.",
+    "Live operator exchange is recorded separately."
+  ]
+}

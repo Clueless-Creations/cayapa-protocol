@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1352" viewBox="0 0 600 1352" role="img" aria-labelledby="title description">
+<title id="title">Cayapa: messages first, independent hosts, explicit profiles</title>
+<desc id="description">The transport-independent message core defines attribution, authority, opaque content and accepted, rejected or unknown outcomes. Direct profile 0.3 lets two independently owned agent hosts communicate over authenticated HTTPS. Each embeds its endpoint role and retains its own keys and private handoff; acceptance means receiver custody. The optional durable-conversation 0.2 profile retains one authority per shared ordered conversation. Applications and visual surfaces are optional consumers. No common Cayapa service, proprietary relay, SDK or UI is required.</desc>
+<rect width="600" height="1352" rx="16" fill="#F5F5F2"/>
+<text x="32" y="53" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" fill="#17171A">Messages first.</text>
+<text x="32" y="94" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#5E5D66">Independent hosts. One contract.</text>
+<rect x="32" y="130" width="536" height="182" rx="10" fill="#FFFFFF" stroke="#8A8992" stroke-width="2"/>
+<text x="56" y="165" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#5E5D66">CORE 0.3 · TRANSPORT INDEPENDENT</text>
+<text x="56" y="208" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17171A">Who sends · Who may receive</text>
+<text x="56" y="245" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#17171A">Live authority · Opaque content</text>
+<text x="56" y="282" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#17171A">Accepted · Rejected · Unknown</text>
+<text x="32" y="347" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5E5D66">Each host implements a selected profile.</text>
+<text x="32" y="395" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#17171A">Direct / 0.3</text>
+<text x="32" y="427" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5E5D66">Authenticated HTTPS, independently run</text>
+<rect x="32" y="451" width="236" height="218" rx="10" fill="#E3E9FC" stroke="#2F55D4" stroke-width="2"/>
+<rect x="332" y="451" width="236" height="218" rx="10" fill="#DDF1E5" stroke="#25804F" stroke-width="2"/>
+<text x="150" y="491" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#17171A">Agent A</text>
+<text x="150" y="527" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#17171A">Owner A’s host</text>
+<text x="150" y="571" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#17171A">Endpoint role</text>
+<text x="150" y="607" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#17171A">Own keys + state</text>
+<text x="150" y="640" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#17171A">Private handoff</text>
+<text x="450" y="491" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#17171A">Agent B</text>
+<text x="450" y="527" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#17171A">Owner B’s host</text>
+<text x="450" y="571" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#17171A">Endpoint role</text>
+<text x="450" y="607" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#17171A">Own keys + state</text>
+<text x="450" y="640" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#17171A">Private handoff</text>
+<path d="M276 550 H324 M316 542 L324 550 L316 558" fill="none" stroke="#2F55D4" stroke-width="3"/>
+<path d="M324 588 H276 M284 580 L276 588 L284 596" fill="none" stroke="#25804F" stroke-width="3"/>
+<text x="300" y="708" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17171A">Acceptance = recipient custody</text>
+<text x="300" y="740" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#5E5D66">No shared transcript or model execution implied.</text>
+<path d="M32 771 H568" fill="none" stroke="#DEDDD6" stroke-width="2"/>
+<text x="32" y="815" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#17171A">Durable conversation / 0.2</text>
+<text x="32" y="847" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5E5D66">Optional shared-history profile</text>
+<rect x="32" y="873" width="536" height="136" rx="10" fill="#FFFFFF" stroke="#8A8992" stroke-width="2"/>
+<text x="300" y="913" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17171A">One authority per conversation</text>
+<text x="300" y="951" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#17171A">Ordered record · Membership · Receipts</text>
+<text x="300" y="983" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5E5D66">History and removal guarantees stay intact</text>
+<text x="32" y="1046" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#5E5D66">Future profiles define their own responsibilities.</text>
+<rect x="32" y="1078" width="536" height="158" rx="10" fill="#FFFFFF" stroke="#8A8992" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="56" y="1118" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#17171A">Optional apps and surfaces</text>
+<text x="56" y="1154" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#17171A">Tasks · Feeds · Services · Conversation UI</text>
+<text x="56" y="1187" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5E5D66">Interpret or present authorized messages.</text>
+<text x="56" y="1218" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5E5D66">They grant no additional authority.</text>
+<text x="300" y="1277" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17171A">Native hosts or installed clients</text>
+<text x="300" y="1310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5E5D66">No required Cayapa service, relay, SDK or UI.</text>
+</svg>

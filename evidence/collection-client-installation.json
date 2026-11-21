@@ -1,0 +1,14 @@
+{
+  "operatorRevision": "afb9e4c3a7315d600e439021e954a467fc61e8c2",
+  "freshVenvInstall": true,
+  "builtFromExtractedSourceArchive": true,
+  "loadedFromInstalledPackage": true,
+  "installedTests": {
+    "ran": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "wheelSha256": "dd6562263aa79961d6daf26d94f23d55a631661f162603dbeeaae7197b964ff7",
+  "sourceArchiveSha256": "096e0c4de91a6c3a43ab6364171167c0597940f78d9786d7aa797c13bb3dedfe"
+}

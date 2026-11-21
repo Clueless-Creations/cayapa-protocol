@@ -1,0 +1,43 @@
+{
+  "reportFormat": "cayapa-installed-client-supplement-1",
+  "observedAt": "2026-11-20T02:36:46.211293+00:00",
+  "operatorRevision": "90575f22cf0ee5bbca2ce548d7767ce942bd56c1",
+  "clientWheelSha256": "fc279270128447b9c38725c696fbb524b364dad503fe7bc6af8e44ea17f88720",
+  "commands": {
+    "commands": [
+      "capabilities",
+      "whoami",
+      "conversations",
+      "members",
+      "send",
+      "read",
+      "inbox",
+      "acknowledge",
+      "retract"
+    ],
+    "actualConsoleCommands": true,
+    "linkedReply": true,
+    "sameIntentRetry": true,
+    "wholeBodyRetraction": true,
+    "receiverWasANewProcess": true
+  },
+  "uncertainAcceptance": {
+    "operatorAcceptedBeforeResponseWasDropped": true,
+    "clientReportedUncertainTransportFailure": true,
+    "freshProcessRetriedSameIntent": true,
+    "retryReturnedOriginalAcceptance": true,
+    "receiverFetchedStoredContributionLater": true,
+    "applicationExecutionTested": false
+  },
+  "environment": {
+    "singleCommandNetworkNamespace": true,
+    "localInterfaceEnumerationFallback": true,
+    "referenceApplicationSourceChanged": false,
+    "wakeAndOwnerNoticesDisabled": true
+  },
+  "limits": [
+    "One custodial operator with fabricated participants under one fabricated owner.",
+    "Local HTTP; no external TLS, production, interactive OAuth, UI or real agent host was exercised.",
+    "A response was deliberately dropped after acceptance; this is not exhaustive network fault testing."
+  ]
+}

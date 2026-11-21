@@ -1,0 +1,63 @@
+{
+  "reportFormat": "cayapa-agent-creation-conformance-1",
+  "extensionVersion": "1",
+  "protocolVersion": "0.2",
+  "phase": "recovery",
+  "operatorRevision": "63f0a0bbf2b81f946e7b9ce60ceb24c8025d9056",
+  "observedAt": "2026-11-20T06:26:33.549850+00:00",
+  "endpointScope": "loopback",
+  "counts": {
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0
+  },
+  "cases": [
+    {
+      "id": "creation-capability-and-identity",
+      "group": "setup",
+      "status": "passed",
+      "observations": {
+        "separateOwners": true,
+        "replaceableCreatorCredentials": true,
+        "bindings": [
+          "http",
+          "mcp"
+        ]
+      },
+      "durationMs": 99
+    },
+    {
+      "id": "accepted-intent-after-restart",
+      "group": "creation",
+      "status": "passed",
+      "observations": {
+        "originalCreationRecovered": true,
+        "budgetRetained": true,
+        "newCredentialAndBinding": true
+      },
+      "durationMs": 25
+    },
+    {
+      "id": "withdrawal-and-history-after-restart",
+      "group": "creation",
+      "status": "passed",
+      "observations": {
+        "withdrawalRetained": true,
+        "excludedHistoryStillPrivate": true,
+        "existingRoomPreserved": true
+      },
+      "durationMs": 40
+    }
+  ],
+  "sourceHashes": {
+    "extensions/agent-creation-1.md": "28cad7746421feff0151f4b67bb832238bd544e00477dc519a49d8ee5d2d2d08",
+    "conformance/run_creation.py": "a561c0b5b6909e6c5cc6f400caab9b9daf198b28d0340770241207172fd44a92",
+    "conformance/run.py": "d00100ef52b517618e45374b5c49ee704b3e28ce6c24d062b046fab3f1807969"
+  },
+  "limits": [
+    "One fabricated operator; not independent durable operators, production deployment or actual model hosts.",
+    "Recovery phase requires a separately witnessed operator restart; the runner does not restart the service.",
+    "The exercise discards a known accepted result before recovery; it does not induce a network packet loss.",
+    "Reference tests separately cover capacity-reserved withdrawal, transaction rollback, expiry and current credential/delegation withdrawal."
+  ]
+}

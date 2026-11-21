@@ -1,0 +1,1007 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cayapa:protocol:0.2:schema",
+  "title": "Cayapa 0.2 messaging structures",
+  "description": "Root validates a contribution. Select a named $defs entry for another operation input/value. Pair structural validation with specification.md semantics and portable vectors. Response objects tolerate unknown extension fields.",
+  "$ref": "#/$defs/contribution",
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "person",
+            "agent"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind"
+      ]
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "mediaType": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]{0,126}/[a-z0-9][a-z0-9!#$&^_.+-]{0,126}(?![\\s\\S])"
+        },
+        "encoding": {
+          "enum": [
+            "utf-8",
+            "base64"
+          ]
+        },
+        "data": {
+          "type": "string"
+        },
+        "fallback": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "mediaType",
+        "encoding",
+        "data"
+      ],
+      "additionalProperties": false,
+      "description": "Additional semantic rules in specification section 6: Unicode scalar values, canonical base64, nonblank fallback, and normalized compact-JSON UTF-8 envelope <=8192 bytes. Structural validation alone is insufficient."
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "protocolVersion": {
+          "const": "0.2"
+        },
+        "capabilities": {
+          "type": "object",
+          "properties": {
+            "content": {
+              "type": "object",
+              "properties": {
+                "encodings": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "utf-8",
+                      "base64"
+                    ]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "maxEnvelopeBytes": {
+                  "const": 8192
+                }
+              },
+              "required": [
+                "encodings",
+                "maxEnvelopeBytes"
+              ]
+            }
+          },
+          "required": [
+            "content"
+          ]
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "capabilities"
+      ]
+    },
+    "whoamiInput": {
+      "type": "object",
+      "properties": {}
+    },
+    "whoamiValue": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/actor"
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expiresAt": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "protocolVersion": {
+          "const": "0.2"
+        },
+        "capabilities": {
+          "type": "object",
+          "properties": {
+            "content": {
+              "type": "object",
+              "properties": {
+                "encodings": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "utf-8",
+                      "base64"
+                    ]
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "maxEnvelopeBytes": {
+                  "const": 8192
+                }
+              },
+              "required": [
+                "encodings",
+                "maxEnvelopeBytes"
+              ]
+            }
+          },
+          "required": [
+            "content"
+          ]
+        },
+        "connectionId": {
+          "type": "string"
+        },
+        "wakeProfile": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "actor",
+        "owner",
+        "scopes",
+        "expiresAt",
+        "protocolVersion",
+        "capabilities",
+        "connectionId"
+      ]
+    },
+    "sendInput": {
+      "type": "object",
+      "properties": {
+        "conversation": {
+          "type": "string"
+        },
+        "intentKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content": {
+          "$ref": "#/$defs/content"
+        },
+        "replyTo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "corrects": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "fyi",
+            "question",
+            "handoff",
+            "done",
+            "message",
+            null
+          ]
+        },
+        "mentions": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 50,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          }
+        },
+        "replyExpectedBy": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "conversation",
+        "intentKey"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "text"
+          ]
+        },
+        {
+          "required": [
+            "content"
+          ]
+        }
+      ],
+      "description": "Semantic limits use UTF-16 code units for intentKey and mention IDs, not JSON Schema code-point maxLength alone. Text requires nonblank content and <=8192 UTF-8 bytes. Authority and relation validation require live operator state."
+    },
+    "readInput": {
+      "type": "object",
+      "properties": {
+        "conversation": {
+          "type": "string"
+        },
+        "afterSeq": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "limit": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "conversation"
+      ]
+    },
+    "inboxInput": {
+      "type": "object",
+      "properties": {
+        "after": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "limit": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "mode": {
+          "enum": [
+            "replay",
+            "unread",
+            null
+          ]
+        },
+        "waitSeconds": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "acknowledgeInput": {
+      "type": "object",
+      "properties": {
+        "contribution": {
+          "type": "string"
+        },
+        "contributions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        },
+        "stage": {
+          "enum": [
+            "received",
+            null
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "contribution"
+          ]
+        },
+        {
+          "required": [
+            "contributions"
+          ]
+        }
+      ]
+    },
+    "retractInput": {
+      "type": "object",
+      "properties": {
+        "contribution": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contribution"
+      ]
+    },
+    "listConversationsInput": {
+      "type": "object",
+      "properties": {}
+    },
+    "listMembersInput": {
+      "type": "object",
+      "properties": {
+        "conversation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "conversation"
+      ]
+    },
+    "sendValue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "convSeq": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "status": {
+          "const": "stored"
+        },
+        "duplicate": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "convSeq",
+        "status",
+        "duplicate"
+      ]
+    },
+    "acknowledgeValue": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "const": true
+        },
+        "acknowledged": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        },
+        "skipped": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "ok",
+        "acknowledged",
+        "skipped"
+      ]
+    },
+    "retractValue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "removed": {
+          "const": true
+        }
+      },
+      "required": [
+        "id",
+        "removed"
+      ]
+    },
+    "receipt": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/actor"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "at": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "actor",
+        "owner",
+        "at"
+      ]
+    },
+    "contribution": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "conversation": {
+          "type": "string"
+        },
+        "convSeq": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "author": {
+          "$ref": "#/$defs/actor"
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "replyTo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "replyToHidden": {
+          "type": "boolean"
+        },
+        "corrects": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "correctsHidden": {
+          "type": "boolean"
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "content": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/content"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "protocolVersion": {
+          "type": "string"
+        },
+        "removed": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "at": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "by": {
+                  "enum": [
+                    "author",
+                    "owner",
+                    "operator"
+                  ]
+                }
+              },
+              "required": [
+                "at",
+                "by"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "receivedBy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/receipt"
+          },
+          "maxItems": 20
+        },
+        "kind": {
+          "enum": [
+            "fyi",
+            "question",
+            "handoff",
+            "done"
+          ]
+        },
+        "mentions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "uniqueItems": true
+        },
+        "replyExpectedBy": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "conversation",
+        "convSeq",
+        "author",
+        "owner",
+        "replyTo",
+        "replyToHidden",
+        "corrects",
+        "correctsHidden",
+        "text",
+        "content",
+        "protocolVersion",
+        "removed",
+        "createdAt",
+        "receivedBy",
+        "kind",
+        "mentions",
+        "replyExpectedBy"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "removed": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "removed"
+            ]
+          },
+          "then": {
+            "oneOf": [
+              {
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "null"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "text": {
+                    "type": "null"
+                  },
+                  "content": {
+                    "$ref": "#/$defs/content"
+                  }
+                }
+              }
+            ]
+          },
+          "else": {
+            "properties": {
+              "text": {
+                "type": "null"
+              },
+              "content": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "replyToHidden": {
+                "const": true
+              }
+            },
+            "required": [
+              "replyToHidden"
+            ]
+          },
+          "then": {
+            "properties": {
+              "replyTo": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "correctsHidden": {
+                "const": true
+              }
+            },
+            "required": [
+              "correctsHidden"
+            ]
+          },
+          "then": {
+            "properties": {
+              "corrects": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contribution"
+          },
+          "maxItems": 50
+        },
+        "omitted": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "more": {
+                  "const": true
+                },
+                "reason": {
+                  "enum": [
+                    "limit",
+                    "bytes"
+                  ]
+                }
+              },
+              "required": [
+                "more",
+                "reason"
+              ]
+            }
+          ]
+        },
+        "next": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "items",
+        "omitted",
+        "next"
+      ],
+      "description": "Use returned integer positions for portable cursor continuation. Current compatibility parsing accepts other finite numeric starting positions. The reference item byte-budget has a first-item exception and excludes wrappers; this schema does not assert a wire-byte cap."
+    },
+    "conversationSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "member",
+            "reader"
+          ]
+        },
+        "members": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "latestSeq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "cayapa": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "home": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "home"
+              ]
+            }
+          ]
+        },
+        "directPeer": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "pending",
+                "member",
+                "ended"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "status"
+          ]
+        },
+        "activeReaders": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "description": "Optional current actor readership projection; retained members keeps its original membership-record meaning."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "role",
+        "members",
+        "latestSeq",
+        "cayapa"
+      ]
+    },
+    "listConversationsValue": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/conversationSummary"
+      },
+      "description": "Current reference discovery has no collection bound or continuation cursor."
+    },
+    "member": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/actor"
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "role": {
+          "enum": [
+            "member",
+            "reader"
+          ]
+        },
+        "historyFromSeq": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "joinedAt": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "accessEnded": {
+          "type": "boolean"
+        },
+        "agentRole": {
+          "type": "string"
+        },
+        "reachability": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "actor",
+        "owner",
+        "role",
+        "historyFromSeq",
+        "joinedAt",
+        "accessEnded"
+      ]
+    },
+    "listMembersValue": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/member"
+          },
+          "maxItems": 200
+        },
+        "omitted": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "more": {
+                  "const": true
+                },
+                "count": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "more",
+                "count"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "members",
+        "omitted"
+      ]
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "retryAfterMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
+    "httpResult": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "ok": {
+              "const": true
+            },
+            "value": {},
+            "requestId": {
+              "type": "string"
+            },
+            "pendingForYou": {
+              "type": "object"
+            },
+            "deliveryForecast": {
+              "type": "array"
+            },
+            "metadataUnavailable": {
+              "const": true
+            }
+          },
+          "required": [
+            "ok",
+            "value",
+            "requestId"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ok": {
+              "const": false
+            },
+            "error": {
+              "$ref": "#/$defs/error"
+            },
+            "requestId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ok",
+            "error"
+          ]
+        }
+      ]
+    }
+  }
+}

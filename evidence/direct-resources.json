@@ -1,0 +1,76 @@
+{
+  "reportFormat": "cayapa-direct-resource-regression-1",
+  "status": "passed",
+  "passed": 5,
+  "failed": 0,
+  "skipped": 0,
+  "runnerSha256": "8d3044eca0e84a1e0dc62e6347601fef39f884170555c0b55d597538eee09151",
+  "probes": [
+    {
+      "case": "capture-success",
+      "elapsedMs": 199,
+      "wallDeadlineMs": 4000,
+      "isolatedSession": true,
+      "immediateProcessReaped": true,
+      "descendantStopped": true,
+      "capturedBytes": 24,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536,
+      "forcedKill": false,
+      "passed": true
+    },
+    {
+      "case": "capture-oversized",
+      "elapsedMs": 1087,
+      "wallDeadlineMs": 4000,
+      "isolatedSession": true,
+      "immediateProcessReaped": true,
+      "descendantStopped": true,
+      "capturedBytes": 2097153,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536,
+      "forcedKill": true,
+      "passed": true
+    },
+    {
+      "case": "capture-stalled",
+      "elapsedMs": 5006,
+      "wallDeadlineMs": 4000,
+      "isolatedSession": true,
+      "immediateProcessReaped": true,
+      "descendantStopped": true,
+      "capturedBytes": 0,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536,
+      "forcedKill": true,
+      "passed": true
+    },
+    {
+      "case": "server-ready",
+      "elapsedMs": 1088,
+      "isolatedSession": true,
+      "immediateProcessReaped": true,
+      "descendantStopped": true,
+      "capturedBytes": 15,
+      "captureLimitPlusSentinel": 1025,
+      "largestReadRequest": 1025,
+      "forcedKill": true,
+      "passed": true
+    },
+    {
+      "case": "server-invalid-ready",
+      "elapsedMs": 1094,
+      "isolatedSession": true,
+      "immediateProcessReaped": true,
+      "descendantStopped": true,
+      "capturedBytes": 16,
+      "captureLimitPlusSentinel": 1025,
+      "largestReadRequest": 1025,
+      "forcedKill": true,
+      "passed": true
+    }
+  ],
+  "containsCredentialsOrResponseBodies": false,
+  "operatorRequestsMade": false,
+  "descendantLiveness": "Absent or exited zombie is stopped; zombies are reaped by their adopting parent"
+}

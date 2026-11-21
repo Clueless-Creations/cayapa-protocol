@@ -1,0 +1,1183 @@
+{
+  "reportFormat": "cayapa-conformance-1",
+  "protocolVersion": "0.2",
+  "observedAt": "2026-11-20T02:36:46.175139+00:00",
+  "operatorRevision": "90575f22cf0ee5bbca2ce548d7767ce942bd56c1",
+  "endpointScope": "loopback",
+  "bindings": [
+    "http",
+    "mcp"
+  ],
+  "externalClientConfigured": true,
+  "fixtureAssumptions": {
+    "fabricatedAndDisposable": true,
+    "provisionedOutsideProtocol": true,
+    "revokedAndRemovedBeforeRunner": true,
+    "liveOwnerControlTransitionsTested": false
+  },
+  "bundleSha256": {
+    "specification.md": "682cfbff09db514a7f62ee672f46c332b1d0173afb6dbeb5cb7ba66503dcb9b7",
+    "bindings/http.md": "601e8a8d2046a98165556f1d82eb54610fc7f820939b19a0b034fd59638dfdf7",
+    "bindings/mcp.md": "b8e6ac1f3233acc6d285c66a6e706cd75b942c92cfa95459c5dde5d920b8493d",
+    "conformance/run.py": "d00100ef52b517618e45374b5c49ee704b3e28ce6c24d062b046fab3f1807969",
+    "schemas/cayapa-0.2.schema.json": "9a194f5d907cb05e22b1770e09fd23a53f11fdb585679bb5786c7dc00b5c719e",
+    "vectors/content.json": "f9d184157010bb0c7531505081f238c4bd4d10dc1666f328346375877cd3efd7"
+  },
+  "counts": {
+    "passed": 103,
+    "failed": 0,
+    "skipped": 0
+  },
+  "cases": [
+    {
+      "id": "fixture-and-capabilities",
+      "group": "setup",
+      "status": "passed",
+      "observations": {
+        "protocolVersion": "0.2",
+        "separateActors": true,
+        "separateCredentialsForB": true,
+        "mcpInitialized": true
+      },
+      "durationMs": 137
+    },
+    {
+      "id": "attributed-opaque-and-text-exchange",
+      "group": "messaging",
+      "status": "passed",
+      "observations": {
+        "utf8Sha256": "2a910bfa46e19cff21518c1d301061df41bdaf8932cd95d6bfe8fc20303230d3",
+        "binarySha256": "199fc77d3c0fe0d54f27f3995c0512df93f85250f09429eae2022db0f0ee31cd",
+        "binaryBytes": 260,
+        "textPreserved": true,
+        "replyPreserved": true
+      },
+      "durationMs": 79
+    },
+    {
+      "id": "external-client-bidirectional-exchange",
+      "group": "external-client",
+      "status": "passed",
+      "observations": {
+        "peerBinding": "mcp",
+        "directions": 2,
+        "encodingsPerDirection": 2,
+        "exactBodies": 4,
+        "sameIntentRetry": true,
+        "changedIntentRejected": true,
+        "unauthorizedClientRejected": true
+      },
+      "durationMs": 1388
+    },
+    {
+      "id": "same-and-changed-intent",
+      "group": "messaging",
+      "status": "passed",
+      "observations": {
+        "equivalentRetryDeduplicated": true,
+        "changedIntentsRejected": 5,
+        "keyScopeIsActorAcrossConversations": true,
+        "sameActorAcrossCredentialsDeduplicated": true
+      },
+      "durationMs": 119
+    },
+    {
+      "id": "unknown-send-field-does-not-consume-key",
+      "group": "messaging",
+      "status": "passed",
+      "observations": {
+        "checkedBindings": [
+          "http",
+          "mcp"
+        ],
+        "sameKeyAcceptedAfterRepair": true
+      },
+      "durationMs": 42
+    },
+    {
+      "id": "unknown-content-field-does-not-consume-key",
+      "group": "messaging",
+      "status": "passed",
+      "observations": {
+        "checkedBindings": [
+          "http",
+          "mcp"
+        ],
+        "sameKeyAcceptedAfterRepair": true
+      },
+      "durationMs": 38
+    },
+    {
+      "id": "mixed-body-does-not-consume-key",
+      "group": "messaging",
+      "status": "passed",
+      "observations": {
+        "checkedBindings": [
+          "http",
+          "mcp"
+        ],
+        "sameKeyAcceptedAfterRepair": true
+      },
+      "durationMs": 41
+    },
+    {
+      "id": "authorization-and-pre-revoked-access",
+      "group": "authorization",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "mcp",
+        "readerDeniedWrites": true,
+        "outsiderDenied": true,
+        "preRemovedMembershipDenied": true,
+        "preRevokedCredentialDenied": true,
+        "transitionTimingTested": false
+      },
+      "durationMs": 368
+    },
+    {
+      "id": "withheld-history-and-hidden-relations",
+      "group": "authorization",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "mcp",
+        "oldContentWithheld": true,
+        "replyAndCorrectionIdentifiersHidden": true,
+        "hiddenTargetCannotBeAcknowledged": true,
+        "failedReferenceDoesNotConsumeKey": true
+      },
+      "durationMs": 52
+    },
+    {
+      "id": "cursors-replay-unread-and-receipts",
+      "group": "messaging",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "mcp",
+        "separateCursorSpaces": true,
+        "resumedWithoutDuplicates": true,
+        "newProcessPerOperation": false,
+        "readDoesNotAcknowledge": true,
+        "unreadIsCredentialScoped": true,
+        "receiptProjectionIsActorScoped": true,
+        "executionReceiptRejected": true
+      },
+      "durationMs": 322
+    },
+    {
+      "id": "retraction-tombstones-and-retries",
+      "group": "messaging",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "mcp",
+        "opaqueEnvelopeAndFallbackCleared": true,
+        "legacyTextCleared": true,
+        "tombstoneRetained": true,
+        "retryCannotResurrect": true,
+        "replayAndRelationsPreserved": true
+      },
+      "durationMs": 198
+    },
+    {
+      "id": "external-client-cursors-and-receipts",
+      "group": "external-client",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "external-client",
+        "separateCursorSpaces": true,
+        "resumedWithoutDuplicates": true,
+        "newProcessPerOperation": true,
+        "readDoesNotAcknowledge": true,
+        "unreadIsCredentialScoped": true,
+        "receiptProjectionIsActorScoped": true,
+        "executionReceiptRejected": true
+      },
+      "durationMs": 2715
+    },
+    {
+      "id": "external-client-authorization",
+      "group": "external-client",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "external-client",
+        "readerDeniedWrites": true,
+        "outsiderDenied": true,
+        "preRemovedMembershipDenied": true,
+        "preRevokedCredentialDenied": true,
+        "transitionTimingTested": false
+      },
+      "durationMs": 2411
+    },
+    {
+      "id": "external-client-withheld-history",
+      "group": "external-client",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "external-client",
+        "oldContentWithheld": true,
+        "replyAndCorrectionIdentifiersHidden": true,
+        "hiddenTargetCannotBeAcknowledged": true,
+        "failedReferenceDoesNotConsumeKey": true
+      },
+      "durationMs": 559
+    },
+    {
+      "id": "external-client-retraction",
+      "group": "external-client",
+      "status": "passed",
+      "observations": {
+        "participantBinding": "external-client",
+        "opaqueEnvelopeAndFallbackCleared": true,
+        "legacyTextCleared": true,
+        "tombstoneRetained": true,
+        "retryCannotResurrect": true,
+        "replayAndRelationsPreserved": true
+      },
+      "durationMs": 1349
+    },
+    {
+      "id": "http-invalid-and-unsupported-input",
+      "group": "http-binding",
+      "status": "passed",
+      "observations": {
+        "malformedFormsRejected": 5,
+        "missingCredentialRejected": true,
+        "unsupportedMethodAndOperationRejected": true
+      },
+      "durationMs": 59
+    },
+    {
+      "id": "raw-request-byte-boundaries",
+      "group": "http-binding",
+      "status": "passed",
+      "observations": {
+        "acceptedRawRequestBytes": 65536,
+        "rejectedRawRequestBytes": 65537,
+        "mcpWrapperCounted": true
+      },
+      "durationMs": 33
+    },
+    {
+      "id": "mcp-invalid-and-unsupported-input",
+      "group": "mcp-binding",
+      "status": "passed",
+      "observations": {
+        "parseAndEnvelopeFailuresRejected": 4,
+        "unknownMethodAndToolRejected": true,
+        "versionMismatchObserved": true,
+        "notificationAcknowledged": true
+      },
+      "durationMs": 79
+    },
+    {
+      "id": "http-vector-text-basic",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 19
+    },
+    {
+      "id": "mcp-vector-text-basic",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 18
+    },
+    {
+      "id": "http-vector-text-preserves-whitespace",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 19
+    },
+    {
+      "id": "mcp-vector-text-preserves-whitespace",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 21
+    },
+    {
+      "id": "http-vector-text-8192-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 26
+    },
+    {
+      "id": "mcp-vector-text-8192-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 16
+    },
+    {
+      "id": "http-vector-text-over-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-text-over-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "http-vector-text-empty",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-text-empty",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 5
+    },
+    {
+      "id": "http-vector-text-whitespace-only",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-text-whitespace-only",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-text-null",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "mcp-vector-text-null",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 10
+    },
+    {
+      "id": "http-vector-content-empty-utf8",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 20
+    },
+    {
+      "id": "mcp-vector-content-empty-utf8",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 18
+    },
+    {
+      "id": "http-vector-content-empty-base64",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 23
+    },
+    {
+      "id": "mcp-vector-content-empty-base64",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 23
+    },
+    {
+      "id": "http-vector-content-unicode-and-escapes",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 23
+    },
+    {
+      "id": "mcp-vector-content-unicode-and-escapes",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 20
+    },
+    {
+      "id": "http-vector-content-json-is-opaque",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 15
+    },
+    {
+      "id": "mcp-vector-content-json-is-opaque",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 19
+    },
+    {
+      "id": "http-vector-content-base64-binary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 18
+    },
+    {
+      "id": "mcp-vector-content-base64-binary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 20
+    },
+    {
+      "id": "http-vector-content-base64-no-padding-needed",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 22
+    },
+    {
+      "id": "mcp-vector-content-base64-no-padding-needed",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 19
+    },
+    {
+      "id": "http-vector-content-base64-one-padding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 17
+    },
+    {
+      "id": "mcp-vector-content-base64-one-padding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 21
+    },
+    {
+      "id": "http-vector-content-fallback-preserved",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 26
+    },
+    {
+      "id": "mcp-vector-content-fallback-preserved",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 23
+    },
+    {
+      "id": "http-vector-content-8192-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "http",
+        "readBinding": "mcp",
+        "bodyPreserved": true
+      },
+      "durationMs": 19
+    },
+    {
+      "id": "mcp-vector-content-8192-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": true,
+        "writeBinding": "mcp",
+        "readBinding": "http",
+        "bodyPreserved": true
+      },
+      "durationMs": 19
+    },
+    {
+      "id": "http-vector-content-over-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-content-over-byte-boundary",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "http-vector-content-over-byte-boundary-with-escaping",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-content-over-byte-boundary-with-escaping",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "http-vector-content-null",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "mcp-vector-content-null",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-content-array",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 12
+    },
+    {
+      "id": "mcp-vector-content-array",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 9
+    },
+    {
+      "id": "http-vector-content-missing-data",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-content-missing-data",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "http-vector-content-data-not-string",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-content-data-not-string",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-content-unknown-key",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-content-unknown-key",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "http-vector-send-unknown-key",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-send-unknown-key",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "http-vector-send-both-bodies",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-send-both-bodies",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-send-null-text-with-content",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-send-null-text-with-content",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 9
+    },
+    {
+      "id": "http-vector-send-neither-body",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 11
+    },
+    {
+      "id": "mcp-vector-send-neither-body",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-content-unknown-encoding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 10
+    },
+    {
+      "id": "mcp-vector-content-unknown-encoding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 9
+    },
+    {
+      "id": "http-vector-content-uppercase-media-type",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 9
+    },
+    {
+      "id": "mcp-vector-content-uppercase-media-type",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "http-vector-content-media-type-parameters",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "mcp-vector-content-media-type-parameters",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "http-vector-content-media-type-newline",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-content-media-type-newline",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "http-vector-content-invalid-media-type",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-content-invalid-media-type",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-content-base64-missing-padding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "mcp-vector-content-base64-missing-padding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 13
+    },
+    {
+      "id": "http-vector-content-base64-nonzero-padding-bits",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "mcp-vector-content-base64-nonzero-padding-bits",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 10
+    },
+    {
+      "id": "http-vector-content-base64-url-safe",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 10
+    },
+    {
+      "id": "mcp-vector-content-base64-url-safe",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "http-vector-content-base64-whitespace",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "mcp-vector-content-base64-whitespace",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 10
+    },
+    {
+      "id": "http-vector-content-base64-overpadding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 11
+    },
+    {
+      "id": "mcp-vector-content-base64-overpadding",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-content-utf8-unpaired-surrogate",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "mcp-vector-content-utf8-unpaired-surrogate",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 10
+    },
+    {
+      "id": "http-vector-content-fallback-empty",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 12
+    },
+    {
+      "id": "mcp-vector-content-fallback-empty",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "http-vector-content-fallback-blank",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-content-fallback-blank",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 6
+    },
+    {
+      "id": "http-vector-content-fallback-null",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "mcp-vector-content-fallback-null",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 7
+    },
+    {
+      "id": "http-vector-content-fallback-unpaired-surrogate",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "mcp-vector-content-fallback-unpaired-surrogate",
+      "group": "content-vectors",
+      "status": "passed",
+      "observations": {
+        "accepted": false,
+        "expectedErrorObserved": true
+      },
+      "durationMs": 8
+    },
+    {
+      "id": "complete-contribution-byte-pagination",
+      "group": "bounds",
+      "status": "passed",
+      "observations": {
+        "envelopeBytes": 8192,
+        "largeContributions": 9,
+        "firstPageItems": 7,
+        "completeItemsPreserved": true,
+        "hardResponseWireBoundTested": false,
+        "firstItemExceptionEliminated": false
+      },
+      "durationMs": 158
+    }
+  ],
+  "limits": [
+    "This report observes one operator; it does not establish independent operator implementations or federation.",
+    "An external subprocess is a separate client path; its authorship and installation provenance require separate evidence.",
+    "MCP authentication here uses fabricated raw actor credentials, not an interactive host OAuth flow.",
+    "Revoked credentials and removed memberships are provisioned before this runner; owner-side transition timing is not tested here.",
+    "The 65536-byte page item budget has a first-item exception and excludes page and binding wrappers; no hard response-wire bound is claimed.",
+    "Conversation discovery is unbounded; omitted member discovery has no continuation cursor.",
+    "No autonomous host loop, wake callback, real agent, payment, attachment, federated routing, or exactly-once execution is tested."
+  ]
+}

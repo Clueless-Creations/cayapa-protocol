@@ -1,0 +1,24 @@
+{
+  "reportFormat": "cayapa-local-fixture-setup-1",
+  "observedAt": "2026-11-20T02:36:34.931250+00:00",
+  "operatorRevision": "90575f22cf0ee5bbca2ce548d7767ce942bd56c1",
+  "provisionerSha256": "d0ca09291d797870831ea395460932d3c69c922726506202bb0b3ed490040260",
+  "endpointScope": "loopback",
+  "fabricatedIdentities": true,
+  "credentialsExpireWithinDays": 1,
+  "ownerCredentialIncludedInPortableFixture": false,
+  "adminCredentialIncludedInPortableFixture": false,
+  "observations": {
+    "removedMemberReadBeforeRemoval": true,
+    "removedMemberReadRejectedAfterRemoval": true,
+    "revokedCredentialReadBeforeRevocation": true,
+    "revokedCredentialReadRejectedAfterRevocation": true,
+    "historyRecordCreatedBeforeLateGrant": true,
+    "visibleReplyAndCorrectionCreatedAfterLateGrant": true
+  },
+  "limits": [
+    "This is implementation-specific local fixture setup, not a portable protocol operation.",
+    "Outbound wake must be disabled in the local operator configuration before starting this script.",
+    "All fabricated actors share one fabricated owner; cross-owner approval is outside this fixture."
+  ]
+}

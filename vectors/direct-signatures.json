@@ -1,0 +1,33 @@
+{
+  "format": "cayapa-direct-signatures-1",
+  "notice": "Public synthetic known-answer material only. Seed bytes 0x11 and 0x22 repeated32times are intentionally nonsecret and must never be deployed as credentials.",
+  "ownerPublicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAoJql9HpnWYAv+VX43C0qFKXJnSO+l/hkEn/5ODRVpPA=\n-----END PUBLIC KEY-----\n",
+  "cases": [
+    {
+      "name": "delivery",
+      "method": "POST",
+      "targetUri": "https://receiver.example/cayapa/v0.3/messages",
+      "contentType": "application/cloudevents+json",
+      "bodyBase64": "eyJzcGVjdmVyc2lvbiI6IjEuMCIsInR5cGUiOiJkZXYuY2F5YXBhLm1lc3NhZ2UiLCJzb3VyY2UiOiJ1cm46dXVpZDoxMTExMTExMS0xMTExLTQxMTEtODExMS0xMTExMTExMTExMTEiLCJpZCI6InZlY3Rvci1tZXNzYWdlIiwiZGF0YWNvbnRlbnR0eXBlIjoiYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIiwiZGF0YV9iYXNlNjQiOiJBQUgvIiwiY2F5YXBhb3duZXIiOiJ1cm46dXVpZDphYWFhYWFhYS1hYWFhLTRhYWEtOGFhYS1hYWFhYWFhYWFhYWEiLCJjYXlhcGF0byI6InVybjp1dWlkOjIyMjIyMjIyLTIyMjItNDIyMi04MjIyLTIyMjIyMjIyMjIyMiIsImNheWFwYXByb2ZpbGUiOiJkaXJlY3QvMC4zIiwiY2F5YXBhZXhwaXJlcyI6IjIwMjYtMTEtMjBUMDU6MDA6MDBaIn0=",
+      "delegation": "eyJ0eXAiOiJjYXlhcGEtZGVsZWdhdGlvbitqd3QiLCJhbGciOiJFZDI1NTE5Iiwia2lkIjoidXJuOnV1aWQ6YWFhYWFhYWEtYWFhYS00YWFhLThhYWEtYWFhYWFhYWFhYWFhI3Jvb3QtMSJ9.eyJpc3MiOiJ1cm46dXVpZDphYWFhYWFhYS1hYWFhLTRhYWEtOGFhYS1hYWFhYWFhYWFhYWEiLCJzdWIiOiJ1cm46dXVpZDoxMTExMTExMS0xMTExLTQxMTEtODExMS0xMTExMTExMTExMTEiLCJhdWQiOiJ1cm46dXVpZDoyMjIyMjIyMi0yMjIyLTQyMjItODIyMi0yMjIyMjIyMjIyMjIiLCJpYXQiOjE3OTUxNDcyMDAsIm5iZiI6MTc5NTE0NzIwMCwiZXhwIjoxNzk1MTQ4MTAwLCJqdGkiOiJ2ZWN0b3ItZGVsZWdhdGlvbiIsInNjb3BlIjoiY2F5YXBhOmRlbGl2ZXIiLCJjbmYiOnsiandrIjp7Imt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4IjoiMEVxeU1uUXJ0S3M2RTJpOVJoWGs1dEFpU3JjYUFXdXZoU0NqTXNsM2h6YyIsImtpZCI6InVybjp1dWlkOjExMTExMTExLTExMTEtNDExMS04MTExLTExMTExMTExMTExMSNrZXktMSJ9fX0.lcIX4KKX5ukBcBcCtN6_xl-UdyJTQpQnv7A9g-xQv-I8L36zgZR4l6YOO4xiE3YhxhJkGDIQWtlQPZnEj1t4CQ",
+      "contentDigest": "sha-256=:PVNC+/FFBeL25x5sOPdKBGVscyGpPKycsshGxWBG3LE=:",
+      "signatureInput": "sig1=(\"@method\" \"@target-uri\" \"content-type\" \"content-digest\" \"cayapa-delegation\");created=1795147200;expires=1795147260;nonce=\"01010101010101010101010101010101\";keyid=\"urn:uuid:11111111-1111-4111-8111-111111111111#key-1\";alg=\"ed25519\";tag=\"cayapa-delivery-0.3\"",
+      "signature": "sig1=:syieOyiy8bI3hNxadyNJt1+R5xiFuFuSXBRPmO05VbTLM4f3T//lPX3UB0pE/Jo/cj7FmNpkUSrGINZk0gkRAA==:",
+      "signatureBase": "\"@method\": POST\n\"@target-uri\": https://receiver.example/cayapa/v0.3/messages\n\"content-type\": application/cloudevents+json\n\"content-digest\": sha-256=:PVNC+/FFBeL25x5sOPdKBGVscyGpPKycsshGxWBG3LE=:\n\"cayapa-delegation\": eyJ0eXAiOiJjYXlhcGEtZGVsZWdhdGlvbitqd3QiLCJhbGciOiJFZDI1NTE5Iiwia2lkIjoidXJuOnV1aWQ6YWFhYWFhYWEtYWFhYS00YWFhLThhYWEtYWFhYWFhYWFhYWFhI3Jvb3QtMSJ9.eyJpc3MiOiJ1cm46dXVpZDphYWFhYWFhYS1hYWFhLTRhYWEtOGFhYS1hYWFhYWFhYWFhYWEiLCJzdWIiOiJ1cm46dXVpZDoxMTExMTExMS0xMTExLTQxMTEtODExMS0xMTExMTExMTExMTEiLCJhdWQiOiJ1cm46dXVpZDoyMjIyMjIyMi0yMjIyLTQyMjItODIyMi0yMjIyMjIyMjIyMjIiLCJpYXQiOjE3OTUxNDcyMDAsIm5iZiI6MTc5NTE0NzIwMCwiZXhwIjoxNzk1MTQ4MTAwLCJqdGkiOiJ2ZWN0b3ItZGVsZWdhdGlvbiIsInNjb3BlIjoiY2F5YXBhOmRlbGl2ZXIiLCJjbmYiOnsiandrIjp7Imt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4IjoiMEVxeU1uUXJ0S3M2RTJpOVJoWGs1dEFpU3JjYUFXdXZoU0NqTXNsM2h6YyIsImtpZCI6InVybjp1dWlkOjExMTExMTExLTExMTEtNDExMS04MTExLTExMTExMTExMTExMSNrZXktMSJ9fX0.lcIX4KKX5ukBcBcCtN6_xl-UdyJTQpQnv7A9g-xQv-I8L36zgZR4l6YOO4xiE3YhxhJkGDIQWtlQPZnEj1t4CQ\n\"@signature-params\": (\"@method\" \"@target-uri\" \"content-type\" \"content-digest\" \"cayapa-delegation\");created=1795147200;expires=1795147260;nonce=\"01010101010101010101010101010101\";keyid=\"urn:uuid:11111111-1111-4111-8111-111111111111#key-1\";alg=\"ed25519\";tag=\"cayapa-delivery-0.3\"",
+      "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA0EqyMnQrtKs6E2i9RhXk5tAiSrcaAWuvhSCjMsl3hzc=\n-----END PUBLIC KEY-----\n"
+    },
+    {
+      "name": "withdrawal",
+      "method": "POST",
+      "targetUri": "https://receiver.example/cayapa/v0.3/delegations/revoke",
+      "contentType": "application/json",
+      "bodyBase64": "eyJpc3N1ZXIiOiJ1cm46dXVpZDphYWFhYWFhYS1hYWFhLTRhYWEtOGFhYS1hYWFhYWFhYWFhYWEiLCJhdWRpZW5jZSI6InVybjp1dWlkOjIyMjIyMjIyLTIyMjItNDIyMi04MjIyLTIyMjIyMjIyMjIyMiIsImRlbGVnYXRpb25fanRpIjoidmVjdG9yLWRlbGVnYXRpb24iLCJyZXF1ZXN0X2lkIjoidmVjdG9yLXdpdGhkcmF3YWwifQ==",
+      "delegation": null,
+      "contentDigest": "sha-256=:fmlm6s50z9VnIaaq2x7SP/NWzbg3YmsgqFeF8o4s4bE=:",
+      "signatureInput": "sig1=(\"@method\" \"@target-uri\" \"content-type\" \"content-digest\");created=1795147200;expires=1795147260;nonce=\"01010101010101010101010101010101\";keyid=\"urn:uuid:aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa#root-1\";alg=\"ed25519\";tag=\"cayapa-control-0.3\"",
+      "signature": "sig1=:K+eIH1PiH655xIiAhigosg5gH+gQ9kGRDlaeNrOEZogx4Y5PcHORQVVPea97vMS0oxD7K1ohn5mbq2erK0ReBQ==:",
+      "signatureBase": "\"@method\": POST\n\"@target-uri\": https://receiver.example/cayapa/v0.3/delegations/revoke\n\"content-type\": application/json\n\"content-digest\": sha-256=:fmlm6s50z9VnIaaq2x7SP/NWzbg3YmsgqFeF8o4s4bE=:\n\"@signature-params\": (\"@method\" \"@target-uri\" \"content-type\" \"content-digest\");created=1795147200;expires=1795147260;nonce=\"01010101010101010101010101010101\";keyid=\"urn:uuid:aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa#root-1\";alg=\"ed25519\";tag=\"cayapa-control-0.3\"",
+      "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAoJql9HpnWYAv+VX43C0qFKXJnSO+l/hkEn/5ODRVpPA=\n-----END PUBLIC KEY-----\n"
+    }
+  ]
+}

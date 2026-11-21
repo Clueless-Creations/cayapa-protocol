@@ -1,0 +1,93 @@
+{
+  "reportFormat": "cayapa-resource-regression-1",
+  "passed": 8,
+  "runnerSha256": "d00100ef52b517618e45374b5c49ee704b3e28ce6c24d062b046fab3f1807969",
+  "probes": [
+    {
+      "case": "process-success",
+      "passed": true,
+      "elapsedMs": 62,
+      "wallDeadlineMs": 5000,
+      "capturedBytes": 43,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536,
+      "waitCalls": 1,
+      "reaped": true,
+      "forcedKill": false
+    },
+    {
+      "case": "process-operator-error",
+      "passed": true,
+      "elapsedMs": 59,
+      "wallDeadlineMs": 5000,
+      "capturedBytes": 99,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536,
+      "waitCalls": 1,
+      "reaped": true,
+      "forcedKill": false
+    },
+    {
+      "case": "process-noisy",
+      "passed": true,
+      "elapsedMs": 72,
+      "wallDeadlineMs": 5000,
+      "capturedBytes": 2097153,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536,
+      "waitCalls": 1,
+      "reaped": true,
+      "forcedKill": false
+    },
+    {
+      "case": "process-stalled",
+      "passed": true,
+      "elapsedMs": 1205,
+      "wallDeadlineMs": 200,
+      "capturedBytes": 0,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536,
+      "waitCalls": 2,
+      "reaped": true,
+      "forcedKill": true
+    },
+    {
+      "case": "http/normal",
+      "passed": true,
+      "elapsedMs": 3,
+      "wallDeadlineMs": 5000,
+      "capturedBytes": 22,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536
+    },
+    {
+      "case": "http/noisy",
+      "passed": true,
+      "elapsedMs": 11,
+      "wallDeadlineMs": 5000,
+      "capturedBytes": 2097153,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536
+    },
+    {
+      "case": "http/slow-body",
+      "passed": true,
+      "elapsedMs": 181,
+      "wallDeadlineMs": 180,
+      "capturedBytes": 4,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 65536
+    },
+    {
+      "case": "http/slow-headers",
+      "passed": true,
+      "elapsedMs": 181,
+      "wallDeadlineMs": 180,
+      "capturedBytes": 0,
+      "captureLimitPlusSentinel": 2097153,
+      "largestReadRequest": 0
+    }
+  ],
+  "containsCredentialsOrResponseBodies": false,
+  "operatorRequestsMade": false
+}

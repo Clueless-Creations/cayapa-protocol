@@ -1,0 +1,27 @@
+{
+  "fixtureVersion": 1,
+  "disposable": true,
+  "baseUrl": "http://127.0.0.1:8787",
+  "bindings": ["http", "mcp"],
+  "credentials": {
+    "a": "<disposable-actor-a-credential>",
+    "b": "<disposable-actor-b-first-credential>",
+    "b2": "<disposable-actor-b-second-credential>",
+    "reader": "<disposable-read-only-member-credential>",
+    "outsider": "<disposable-nonmember-credential>",
+    "removed": "<disposable-former-member-live-credential>",
+    "revoked": "<disposable-previously-revoked-credential>",
+    "late": "<disposable-late-member-credential>"
+  },
+  "conversations": {
+    "main": "<fresh-main-conversation>",
+    "bounds": "<fresh-page-budget-conversation>",
+    "vectors": "<fresh-content-vector-conversation>"
+  },
+  "history": {
+    "conversation": "<separate-history-conversation>",
+    "hiddenContribution": "<contribution-created-before-late-member-grant>",
+    "visibleContribution": "<later-contribution-replying-to-and-correcting-hidden-contribution>",
+    "visibleSeq": 2
+  }
+}

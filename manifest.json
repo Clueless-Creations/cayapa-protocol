@@ -1,0 +1,323 @@
+{
+  "format": "cayapa-protocol-bundle-2",
+  "coreVersion": "0.3",
+  "profiles": {
+    "direct/0.3": "profiles/direct-0.3.md",
+    "durable-conversation/0.2": "profiles/durable-conversation-0.2.md"
+  },
+  "wireVersions": {
+    "direct/0.3": "0.3",
+    "durable-conversation/0.2": "0.2"
+  },
+  "bindings": [
+    "http-message/0.3",
+    "http/0.2",
+    "mcp/0.2"
+  ],
+  "security": [
+    "http-signatures/0.3"
+  ],
+  "hostLifecycleContracts": {
+    "host-session/1": "extensions/host-session-1.md"
+  },
+  "conformanceDependencies": {
+    "conformance/run_direct.py": [
+      "cryptography==50.0.0"
+    ],
+    "conformance/run_sessions.py": [
+      "cryptography==50.0.0"
+    ]
+  },
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 8667,
+      "sha256": "e10fbfb7b7e3d920d855ee1dfc136097a2e509bdaaac4cfaedb809dd35240b6e"
+    },
+    {
+      "path": "COLLECTION-CONFORMANCE.md",
+      "bytes": 8089,
+      "sha256": "03aa0fda03398783996ead63ccaf42db700763e834ac54d969212b3d308f060c"
+    },
+    {
+      "path": "CONFORMANCE.md",
+      "bytes": 11931,
+      "sha256": "e272637cdfaab1cec488f58d9021a0fb38c1a379974ea0d7312522ab8d3e3b31"
+    },
+    {
+      "path": "CREATION-CONFORMANCE.md",
+      "bytes": 4974,
+      "sha256": "109a7809015e0021c68838b86509e48321509e3291c0568617f7fbdf38df7dd0"
+    },
+    {
+      "path": "DIRECT-CONFORMANCE.md",
+      "bytes": 13910,
+      "sha256": "2d09347c9badfd93e3b1d0a95f4922a9dd4a92f92eecda914e9721bc0f310039"
+    },
+    {
+      "path": "IMPLEMENTING.md",
+      "bytes": 19625,
+      "sha256": "c41413e7613fe38e8a1121aac23548130eff07f50cea36cd794cf3caec329e3f"
+    },
+    {
+      "path": "PROVENANCE.md",
+      "bytes": 1063,
+      "sha256": "1ce0319005a32277a686fda63f1c7ff9b37eab45381f82d0ebcd5fde29927ba2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10524,
+      "sha256": "310593aafa548e52f57564af8b09ca8cddb4e965a6cbbcc94bf9b07971ed2ab9"
+    },
+    {
+      "path": "SESSION-CONFORMANCE.md",
+      "bytes": 5563,
+      "sha256": "3e9ecb8b70203a9e9bc1560ae19e5e853a723515b5407edacab18c7e78e78ec9"
+    },
+    {
+      "path": "architecture-dark.svg",
+      "bytes": 7278,
+      "sha256": "0c56d7ceb3c2d739c4b30222d7a474e574366217cdb3903cacbe0b63636a7eca"
+    },
+    {
+      "path": "architecture.md",
+      "bytes": 20221,
+      "sha256": "cd3ddeeec32030ce2310fa5341fc37ff9ce5e6b8d6d3731f83e19489745d54f9"
+    },
+    {
+      "path": "architecture.svg",
+      "bytes": 7278,
+      "sha256": "e5b57e9036692121c88eb3eba39d283ec6633bd3117d92fb903b56d1fa3fdcb8"
+    },
+    {
+      "path": "bindings/http-message-0.3.md",
+      "bytes": 11624,
+      "sha256": "5941e4509eb8755f9ce6d9409112dbf656677e98ec4aad0f468827936686009f"
+    },
+    {
+      "path": "bindings/http.md",
+      "bytes": 7519,
+      "sha256": "660c7cb215d32e82486385d44f37cff975a5800c9a5f9fa69b0bb75f69bc8343"
+    },
+    {
+      "path": "bindings/mcp.md",
+      "bytes": 9344,
+      "sha256": "9af8822aeac2e6f3cee85c7b08d522e49af1947c853aca8bb13b0699ec8e0a32"
+    },
+    {
+      "path": "check.py",
+      "bytes": 16142,
+      "sha256": "63e1720cfb7ed5ae868fea593169e274ef56d8309cacaefe28976a83c7110db3"
+    },
+    {
+      "path": "conformance/README.md",
+      "bytes": 19532,
+      "sha256": "39f222f67023801561d9e1e885e2fca053c28e824d102206997b0cf1d7df8f60"
+    },
+    {
+      "path": "conformance/check-direct-resources.py",
+      "bytes": 10232,
+      "sha256": "a6d805124f9e381533e03c85f631e0186354492aaa5d93ad381368d3b8ca4bbb"
+    },
+    {
+      "path": "conformance/check-resources.py",
+      "bytes": 8647,
+      "sha256": "95f4a2765c33c6a657f9d38f63e242bf1ca461b8eb4817a7c99f86ec4ecb358e"
+    },
+    {
+      "path": "conformance/creation-fixture.md",
+      "bytes": 4191,
+      "sha256": "c769f63d03d1e4ff6e66f7d9aa3db635019f02c2064fd4ef0bc818759ea04ce6"
+    },
+    {
+      "path": "conformance/direct-fixture.md",
+      "bytes": 10427,
+      "sha256": "2ddb23800cc23cce41eff8ef679c26f2cbf274e2c50f1db40b4ad409efe9be75"
+    },
+    {
+      "path": "conformance/fixture.example.json",
+      "bytes": 1010,
+      "sha256": "75ad462f023dbdfc6106689bff6cad0c7ddd162fa1b975ad7ec42332936bebd9"
+    },
+    {
+      "path": "conformance/requirements.txt",
+      "bytes": 21,
+      "sha256": "56e6301f491d336997805ec0e824b163ce5797a708440d68f52b6c3e60d63909"
+    },
+    {
+      "path": "conformance/run.py",
+      "bytes": 57740,
+      "sha256": "d00100ef52b517618e45374b5c49ee704b3e28ce6c24d062b046fab3f1807969"
+    },
+    {
+      "path": "conformance/run_collections.py",
+      "bytes": 16715,
+      "sha256": "291febf0ea6228fb2f71a80521486738a987c0a22864165c5229e9db80ff1533"
+    },
+    {
+      "path": "conformance/run_creation.py",
+      "bytes": 19223,
+      "sha256": "a561c0b5b6909e6c5cc6f400caab9b9daf198b28d0340770241207172fd44a92"
+    },
+    {
+      "path": "conformance/run_direct.py",
+      "bytes": 64107,
+      "sha256": "8d3044eca0e84a1e0dc62e6347601fef39f884170555c0b55d597538eee09151"
+    },
+    {
+      "path": "conformance/run_sessions.py",
+      "bytes": 35407,
+      "sha256": "677652d9e311bd3554e7adb746237abb62cb06ad7b934fbe143a847a70712c4d"
+    },
+    {
+      "path": "conformance/session-fixture.md",
+      "bytes": 15923,
+      "sha256": "855c2a104b9612ad143ecf2f9c53eced2e219e2f718afeaa1ad9c77696d475e4"
+    },
+    {
+      "path": "core/0.3.md",
+      "bytes": 7292,
+      "sha256": "3632baa7154ac00a84ce8f322008149c150ff1219d1b85e450749a7f5d42e123"
+    },
+    {
+      "path": "decisions.md",
+      "bytes": 34388,
+      "sha256": "d570ba6dbc76f0d78175c8a41eb73adca8fd0602aa164bb2b80306924aabbc17"
+    },
+    {
+      "path": "evidence/client-installation.json",
+      "bytes": 2393,
+      "sha256": "6314c0937e1632a2268b56d5afb154f0054b8eee562f33f9b4804da76bda0960"
+    },
+    {
+      "path": "evidence/collection-client-installation.json",
+      "bytes": 451,
+      "sha256": "9ca468cadb2b5a925cea78c0056199eb060d3fa538c67d2ba3cf49dc90832b2f"
+    },
+    {
+      "path": "evidence/collection-conformance.json",
+      "bytes": 3881,
+      "sha256": "f488a5dd99eca440e8ac2a66e0499acb27041cf3a28cdac863cf1711c269b582"
+    },
+    {
+      "path": "evidence/creation-conformance.json",
+      "bytes": 3947,
+      "sha256": "8c56df9ab5e8e80a0c4b40807a429122b49c15d29fc4dbd2eb36194420a98d50"
+    },
+    {
+      "path": "evidence/creation-recovery.json",
+      "bytes": 2088,
+      "sha256": "6cf8942aa23fd5788f5966b6480ee9cf72dfd88376b6e6471a970f18c01ab4e2"
+    },
+    {
+      "path": "evidence/creation-runtime.json",
+      "bytes": 5363,
+      "sha256": "56d39749fa63e92be76878034cf52ebe094e93356068b7379b1749447dad4c57"
+    },
+    {
+      "path": "evidence/direct-conformance.json",
+      "bytes": 30227,
+      "sha256": "8eb2543a6744124c662790f3a2929593938d7d22565bde20cb0955d8d0a2a781"
+    },
+    {
+      "path": "evidence/direct-resources.json",
+      "bytes": 2135,
+      "sha256": "54e392ac4d4640ada8f775df379c791dfb7fc2986a2699e8c91c09c5c0e1a0e6"
+    },
+    {
+      "path": "evidence/installed-client-exchange.json",
+      "bytes": 1468,
+      "sha256": "9e6cd008958440cced7b34cf5adc91381845ca1605c0926f05a0bbb271cc85c9"
+    },
+    {
+      "path": "evidence/local-conformance.json",
+      "bytes": 31088,
+      "sha256": "2bbd31ee4a0be5b98926ecc08bb4fedc36df2c26b79a369cd68e0e10f7a7c599"
+    },
+    {
+      "path": "evidence/local-fixture-setup.json",
+      "bytes": 1123,
+      "sha256": "c9a25f343e834661915013a85c4a9ad74a843da9aeb5429c702e6187c86c975e"
+    },
+    {
+      "path": "evidence/runner-resource-probes.json",
+      "bytes": 2336,
+      "sha256": "b2a63192fca180cd23f1f73a9c859ba7158bd4193ce3a712f6bd4e6a5bf1a440"
+    },
+    {
+      "path": "evidence/session-conformance.json",
+      "bytes": 12080,
+      "sha256": "1e6f9e8fac98b1ecced0a0e62b2881269654bdb03b3dc5f976382ccc22c4ba9a"
+    },
+    {
+      "path": "evidence/session-isolated-summary.json",
+      "bytes": 969,
+      "sha256": "b60454982b8e6e918bc0d8e9347f696b1d6c0b6d92056f776b80b010b9c5083e"
+    },
+    {
+      "path": "extensions/agent-creation-1.md",
+      "bytes": 13960,
+      "sha256": "28cad7746421feff0151f4b67bb832238bd544e00477dc519a49d8ee5d2d2d08"
+    },
+    {
+      "path": "extensions/collection-page-1.md",
+      "bytes": 10407,
+      "sha256": "36620df427b313da4539acaf0ca7ce4353c0a9b456da093d270e6a0eccd50fda"
+    },
+    {
+      "path": "extensions/host-session-1.md",
+      "bytes": 15440,
+      "sha256": "32f2d6d673dc59e9805651eb65f70282d7fbbbd7ca59d2377d08bce3e6a72586"
+    },
+    {
+      "path": "profiles/direct-0.3.md",
+      "bytes": 8048,
+      "sha256": "0ef64fdcb34a59f6c439adaabb23b4f0d42d3754a882f322807e101b8cf0dd0f"
+    },
+    {
+      "path": "profiles/durable-conversation-0.2.md",
+      "bytes": 3223,
+      "sha256": "e5ad2d459d3197233ab9de407bfc9802480e2900fb89fb68ce50d37a245279d0"
+    },
+    {
+      "path": "proposals/session-identity.md",
+      "bytes": 16286,
+      "sha256": "08845da91b35dc78492b426fcd9b0ee50be4ddbc26ba50743af3357eea353489"
+    },
+    {
+      "path": "schemas/cayapa-0.2.schema.json",
+      "bytes": 21692,
+      "sha256": "7c670ba2d0afbeb2f2a1fe79ec3bc1bd7ce772d0dbc5ca8a0dbad416e77253b8"
+    },
+    {
+      "path": "schemas/direct-0.3.schema.json",
+      "bytes": 1571,
+      "sha256": "814515cab16f8d7e6c6060b21c8c65036883406066663b0dab56733c948ecccd"
+    },
+    {
+      "path": "security/http-signatures-0.3.md",
+      "bytes": 10034,
+      "sha256": "67a6e916a5795079d2dee27a7d903378ac724fd01a3d877a12060bd361ed1622"
+    },
+    {
+      "path": "specification.md",
+      "bytes": 36976,
+      "sha256": "376320e0a1eb5ab3f9dd3ad839843418deac02c31a6b426aaba57375ad413b04"
+    },
+    {
+      "path": "vectors/README.md",
+      "bytes": 6178,
+      "sha256": "3f26a6d6a89430f4602e9c35c51b90059f8c1fdecd208d997cb30f6abd49a56a"
+    },
+    {
+      "path": "vectors/content.json",
+      "bytes": 51747,
+      "sha256": "f9d184157010bb0c7531505081f238c4bd4d10dc1666f328346375877cd3efd7"
+    },
+    {
+      "path": "vectors/direct-signatures.json",
+      "bytes": 5524,
+      "sha256": "dbb297361f2b1405ce07880fcdc4d32778ea3aa9ce5b077e3317a1e9f01d6036"
+    }
+  ]
+}

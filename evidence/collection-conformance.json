@@ -1,0 +1,134 @@
+{
+  "reportFormat": "cayapa-collection-page-conformance-1",
+  "extensionVersion": "1",
+  "protocolVersion": "0.2",
+  "operatorRevision": "afb9e4c3a7315d600e439021e954a467fc61e8c2",
+  "observedAt": "2026-11-20T06:04:59.740035+00:00",
+  "endpointScope": "loopback",
+  "externalClientConfigured": true,
+  "sourceHashes": {
+    "extensions/collection-page-1.md": "36620df427b313da4539acaf0ca7ce4353c0a9b456da093d270e6a0eccd50fda",
+    "conformance/run_collections.py": "291febf0ea6228fb2f71a80521486738a987c0a22864165c5229e9db80ff1533",
+    "conformance/run.py": "d00100ef52b517618e45374b5c49ee704b3e28ce6c24d062b046fab3f1807969"
+  },
+  "counts": {
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0
+  },
+  "cases": [
+    {
+      "id": "collection-capability-and-fixture",
+      "group": "setup",
+      "status": "passed",
+      "observations": {
+        "collections": 9,
+        "capabilityVersion": "1"
+      },
+      "durationMs": 178
+    },
+    {
+      "id": "complete-escaped-bodies-and-installed-client",
+      "group": "bounds",
+      "status": "passed",
+      "observations": {
+        "completeLegacyBodyBytes": 8192,
+        "separateInstalledClient": true,
+        "bindingIndependentCursor": true
+      },
+      "durationMs": 227
+    },
+    {
+      "id": "all-nine-authorized-collections",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "collectionsExercised": 9,
+        "archivedSubscriptionReachable": true
+      },
+      "durationMs": 1293
+    },
+    {
+      "id": "owner-outsider-and-actor-refusals",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "entrances": 3,
+        "ownerAndParticipantScopesEnforced": true
+      },
+      "durationMs": 1154
+    },
+    {
+      "id": "opaque-cursor-scope-and-tampering",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "scopeAndTamperingRejected": true
+      },
+      "durationMs": 213
+    },
+    {
+      "id": "withheld-history-and-hidden-receipts",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "bodyRelationsAndReceiptsFiltered": true
+      },
+      "durationMs": 297
+    },
+    {
+      "id": "pre-revoked-authority",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "preRevokedCredentialAndMembership": true
+      },
+      "durationMs": 448
+    },
+    {
+      "id": "separate-receipts-and-credential-unread",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "fetchDidNotAcknowledge": true,
+        "connectionScopedUnread": true
+      },
+      "durationMs": 1090
+    },
+    {
+      "id": "concurrent-addition-boundary",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "finiteBoundary": true,
+        "freshWalkFindsNewRecord": true
+      },
+      "durationMs": 846
+    },
+    {
+      "id": "complete-http-and-mcp-wire-bounds",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "httpMaxBytes": 65664,
+        "mcpMaxBytes": 200704
+      },
+      "durationMs": 45
+    },
+    {
+      "id": "closed-input-and-unsupported-selections",
+      "group": "collections",
+      "status": "passed",
+      "observations": {
+        "unsupportedInputRejected": true
+      },
+      "durationMs": 125
+    }
+  ],
+  "limits": [
+    "One fabricated operator with separately installed participant client; not independent-server or real-host evidence.",
+    "Owner fixture grants are pre-provisioned; this portable run reads owner collections but does not mutate owner authority.",
+    "Live owner revocation/history changes, cursor expiry/restart and deep archived history require the separate reference tests.",
+    "Legacy operations retain their documented bounds; no browser migration or global I5 claim follows."
+  ]
+}

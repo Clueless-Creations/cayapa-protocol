@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cayapa direct0.3 structured event",
+  "description": "Structural aid only. Binding prose additionally requires valid URI/media-type/date/base64, authority,time,bytebounds and duplicate-member refusal.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specversion",
+    "type",
+    "source",
+    "id",
+    "datacontenttype",
+    "data_base64",
+    "cayapaowner",
+    "cayapato",
+    "cayapaprofile",
+    "cayapaexpires"
+  ],
+  "properties": {
+    "specversion": {
+      "const": "1.0"
+    },
+    "type": {
+      "const": "dev.cayapa.message"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^[a-z][a-z0-9+.-]*:[!-~]+$"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._~-]+$"
+    },
+    "datacontenttype": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "data_base64": {
+      "type": "string",
+      "maxLength": 87384
+    },
+    "cayapaowner": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^[a-z][a-z0-9+.-]*:[!-~]+$"
+    },
+    "cayapato": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^[a-z][a-z0-9+.-]*:[!-~]+$"
+    },
+    "cayapaprofile": {
+      "const": "direct/0.3"
+    },
+    "cayapaexpires": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  }
+}

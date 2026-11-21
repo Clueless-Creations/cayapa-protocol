@@ -1,0 +1,1268 @@
+{
+  "format": "cayapa-direct-conformance-1",
+  "coreVersion": "0.3",
+  "profile": "direct/0.3",
+  "binding": "http-message/0.3",
+  "security": "http-signatures/0.3",
+  "status": "passed",
+  "generatedAt": "2026-11-20T05:58:40Z",
+  "runtime": {
+    "python": "3.12.14",
+    "cryptography": "50.0.0",
+    "tls": "OpenSSL 3.5.8 25 Aug 2026"
+  },
+  "implementations": {
+    "left": {
+      "executable": "node",
+      "entryFiles": [
+        {
+          "name": "operator.mjs",
+          "sha256": "47d458bd11a9a77050759ae3a198750713f920036c6e8185d7aeb9bad4363447"
+        }
+      ]
+    },
+    "right": {
+      "executable": "python3",
+      "entryFiles": [
+        {
+          "name": "python3",
+          "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+        },
+        {
+          "name": "operator.py",
+          "sha256": "0cc1e3384d0c885d9dd6b1e894b87c24268c58528455950cbc9a6ef249b1dcdb"
+        }
+      ]
+    }
+  },
+  "fixture": {
+    "transport": "verified HTTPS on loopback",
+    "independentOwnerKeys": true,
+    "independentActorKeys": true,
+    "independentTlsKeys": true,
+    "separateStores": true,
+    "sharedTestCaPurpose": "localhost endpoint certificates only",
+    "nativeSendersBothDirections": true,
+    "deterministicAfterCommitFaults": true
+  },
+  "summary": {
+    "passed": 193,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 49326
+  },
+  "limitations": [
+    "Two local implementations and bounded schedules, not every implementation or public deployment",
+    "Receiver custody is not model consumption or execution",
+    "Trusted manual owner pins, not global identity discovery or root-owner transfer",
+    "Remote withdrawal remains pending until receiver commit",
+    "No cross-operator durable-conversation replication or legacy-profile claim",
+    "No production readiness, payment, end-to-end encryption, or dishonest-receiver guarantee"
+  ],
+  "sourceHashes": [
+    {
+      "path": "core/0.3.md",
+      "sha256": "3632baa7154ac00a84ce8f322008149c150ff1219d1b85e450749a7f5d42e123"
+    },
+    {
+      "path": "profiles/direct-0.3.md",
+      "sha256": "0ef64fdcb34a59f6c439adaabb23b4f0d42d3754a882f322807e101b8cf0dd0f"
+    },
+    {
+      "path": "profiles/durable-conversation-0.2.md",
+      "sha256": "e5ad2d459d3197233ab9de407bfc9802480e2900fb89fb68ce50d37a245279d0"
+    },
+    {
+      "path": "bindings/http-message-0.3.md",
+      "sha256": "5941e4509eb8755f9ce6d9409112dbf656677e98ec4aad0f468827936686009f"
+    },
+    {
+      "path": "security/http-signatures-0.3.md",
+      "sha256": "67a6e916a5795079d2dee27a7d903378ac724fd01a3d877a12060bd361ed1622"
+    },
+    {
+      "path": "schemas/direct-0.3.schema.json",
+      "sha256": "814515cab16f8d7e6c6060b21c8c65036883406066663b0dab56733c948ecccd"
+    },
+    {
+      "path": "vectors/direct-signatures.json",
+      "sha256": "dbb297361f2b1405ce07880fcdc4d32778ea3aa9ce5b077e3317a1e9f01d6036"
+    },
+    {
+      "path": "conformance/direct-fixture.md",
+      "sha256": "2ddb23800cc23cce41eff8ef679c26f2cbf274e2c50f1db40b4ad409efe9be75"
+    },
+    {
+      "path": "conformance/requirements.txt",
+      "sha256": "56e6301f491d336997805ec0e824b163ce5797a708440d68f52b6c3e60d63909"
+    },
+    {
+      "path": "conformance/run_direct.py",
+      "sha256": "8d3044eca0e84a1e0dc62e6347601fef39f884170555c0b55d597538eee09151"
+    },
+    {
+      "path": "conformance/run.py",
+      "sha256": "d00100ef52b517618e45374b5c49ee704b3e28ce6c24d062b046fab3f1807969"
+    }
+  ],
+  "cases": [
+    {
+      "lane": "suite",
+      "name": "published-known-answer-signatures",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "lane": "left-to-right",
+      "name": "explicit-capabilities",
+      "status": "passed",
+      "durationMs": 6
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-binary-message-and-local-custody",
+      "status": "passed",
+      "durationMs": 352
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-unknown-content-type",
+      "status": "passed",
+      "durationMs": 274
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-empty-payload",
+      "status": "passed",
+      "durationMs": 264
+    },
+    {
+      "lane": "left-to-right",
+      "name": "maximum-payload",
+      "status": "passed",
+      "durationMs": 337
+    },
+    {
+      "lane": "left-to-right",
+      "name": "maximum-envelope-body",
+      "status": "passed",
+      "durationMs": 371
+    },
+    {
+      "lane": "left-to-right",
+      "name": "fresh-process-fresh-nonce-retry",
+      "status": "passed",
+      "durationMs": 372
+    },
+    {
+      "lane": "left-to-right",
+      "name": "changed-intent-conflict",
+      "status": "passed",
+      "durationMs": 238
+    },
+    {
+      "lane": "left-to-right",
+      "name": "exact-byte-retry-equivalence",
+      "status": "passed",
+      "durationMs": 264
+    },
+    {
+      "lane": "left-to-right",
+      "name": "concurrent-identical-intents",
+      "status": "passed",
+      "durationMs": 271
+    },
+    {
+      "lane": "left-to-right",
+      "name": "authenticated-request-replay",
+      "status": "passed",
+      "durationMs": 373
+    },
+    {
+      "lane": "left-to-right",
+      "name": "replay-survives-restart",
+      "status": "passed",
+      "durationMs": 503
+    },
+    {
+      "lane": "left-to-right",
+      "name": "unknown-profile",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-recipient-attribution",
+      "status": "passed",
+      "durationMs": 14
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-source-attribution",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-owner-attribution",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "unknown-envelope-control",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "invalid-uri-percent-escape",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "invalid-media-type",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "noncanonical-payload-base64",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "noncanonical-base64-pad-bits",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "expired-message",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "excessive-message-lifetime",
+      "status": "passed",
+      "durationMs": 7
+    },
+    {
+      "lane": "left-to-right",
+      "name": "fractional-message-expiry",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "payload-over-limit",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "duplicate-envelope-member",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "invalid-utf8",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "byte-order-mark",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "lone-unicode-surrogate",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-delegation-audience",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-delegation-scope",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "expired-delegation",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "future-delegation",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "excessive-delegation-lifetime",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "delegation-unknown-claim",
+      "status": "passed",
+      "durationMs": 2
+    },
+    {
+      "lane": "left-to-right",
+      "name": "unknown-owner-pin",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "jwt-none-algorithm",
+      "status": "passed",
+      "durationMs": 2
+    },
+    {
+      "lane": "left-to-right",
+      "name": "jwt-polymorphic-algorithm",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "jwt-algorithm-confusion",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "forged-owner-signature",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "duplicate-jwt-member",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "fractional-jwt-time-token",
+      "status": "passed",
+      "durationMs": 14
+    },
+    {
+      "lane": "left-to-right",
+      "name": "private-jwk-material",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "issuer-owner-key-cannot-be-actor-key",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "left-to-right",
+      "name": "other-pinned-owner-key-cannot-be-actor-key",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "expired-signature",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "future-signature",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "excessive-signature-lifetime",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-signature-algorithm",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-signature-domain",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "missing-digest-coverage",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-target-uri",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "body-tampering",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "forged-actor-signature",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "wrong-content-digest",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "identity-without-recipient-admission",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "left-to-right",
+      "name": "actor-cannot-withdraw-owner-delegation",
+      "status": "passed",
+      "durationMs": 155
+    },
+    {
+      "lane": "left-to-right",
+      "name": "foreign-owner-cannot-withdraw-recipient-admission",
+      "status": "passed",
+      "durationMs": 98
+    },
+    {
+      "lane": "left-to-right",
+      "name": "unsupported-envelope-media-type",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "unsupported-content-encoding",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "body-over-limit",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "left-to-right",
+      "name": "refusals-created-no-handoffs",
+      "status": "passed",
+      "durationMs": 142
+    },
+    {
+      "lane": "left-to-right",
+      "name": "duplicate-signature-header",
+      "status": "passed",
+      "durationMs": 136
+    },
+    {
+      "lane": "left-to-right",
+      "name": "duplicate-content-length",
+      "status": "passed",
+      "durationMs": 132
+    },
+    {
+      "lane": "left-to-right",
+      "name": "transfer-encoding",
+      "status": "passed",
+      "durationMs": 127
+    },
+    {
+      "lane": "left-to-right",
+      "name": "oversized-headers",
+      "status": "passed",
+      "durationMs": 127
+    },
+    {
+      "lane": "left-to-right",
+      "name": "interrupted-upload-crash-and-retry",
+      "status": "passed",
+      "durationMs": 436
+    },
+    {
+      "lane": "left-to-right",
+      "name": "lost-acceptance-response-crash-and-retry",
+      "status": "passed",
+      "durationMs": 517
+    },
+    {
+      "lane": "left-to-right",
+      "name": "owner-signed-withdrawal-and-restart",
+      "status": "passed",
+      "durationMs": 777
+    },
+    {
+      "lane": "left-to-right",
+      "name": "lost-withdrawal-response-crash-and-retry",
+      "status": "passed",
+      "durationMs": 866
+    },
+    {
+      "lane": "left-to-right",
+      "name": "control-intent-conflict",
+      "status": "passed",
+      "durationMs": 233
+    },
+    {
+      "lane": "left-to-right",
+      "name": "cross-route-control-intent-conflict",
+      "status": "passed",
+      "durationMs": 290
+    },
+    {
+      "lane": "left-to-right",
+      "name": "cross-route-owner-nonce-replay",
+      "status": "passed",
+      "durationMs": 302
+    },
+    {
+      "lane": "left-to-right",
+      "name": "preemptive-withdrawal-survives-restart",
+      "status": "passed",
+      "durationMs": 363
+    },
+    {
+      "lane": "left-to-right",
+      "name": "unauthenticated-attempt-cannot-reserve-nonce",
+      "status": "passed",
+      "durationMs": 236
+    },
+    {
+      "lane": "left-to-right",
+      "name": "actor-nonce-scope-spans-delegations",
+      "status": "passed",
+      "durationMs": 354
+    },
+    {
+      "lane": "left-to-right",
+      "name": "accepted-intent-expiry-is-a-current-refusal",
+      "status": "passed",
+      "durationMs": 1974
+    },
+    {
+      "lane": "left-to-right",
+      "name": "actor-key-rotation-and-prior-intent",
+      "status": "passed",
+      "durationMs": 730
+    },
+    {
+      "lane": "left-to-right",
+      "name": "withdrawal-during-inflight-delivery",
+      "status": "passed",
+      "durationMs": 301
+    },
+    {
+      "lane": "left-to-right",
+      "name": "signature-expires-during-inflight-delivery",
+      "status": "passed",
+      "durationMs": 2159
+    },
+    {
+      "lane": "left-to-right",
+      "name": "remote-withdrawal-pending-until-receiver-commit",
+      "status": "passed",
+      "durationMs": 420
+    },
+    {
+      "lane": "left-to-right",
+      "name": "bounded-live-messages",
+      "status": "passed",
+      "durationMs": 864
+    },
+    {
+      "lane": "left-to-right",
+      "name": "bounded-live-nonces",
+      "status": "passed",
+      "durationMs": 807
+    },
+    {
+      "lane": "left-to-right",
+      "name": "bounded-live-controls",
+      "status": "passed",
+      "durationMs": 543
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-hostname",
+      "status": "passed",
+      "durationMs": 600
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-untrusted-ca",
+      "status": "passed",
+      "durationMs": 604
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-redirect",
+      "status": "passed",
+      "durationMs": 597
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-malformed",
+      "status": "passed",
+      "durationMs": 601
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-oversized",
+      "status": "passed",
+      "durationMs": 601
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-mismatched-digest",
+      "status": "passed",
+      "durationMs": 598
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-mismatched-recipient",
+      "status": "passed",
+      "durationMs": 613
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-status-duplicate-mismatch",
+      "status": "passed",
+      "durationMs": 640
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-fractional-acceptance-time",
+      "status": "passed",
+      "durationMs": 608
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-malformed-control",
+      "status": "passed",
+      "durationMs": 612
+    },
+    {
+      "lane": "left-to-right",
+      "name": "native-client-refuses-unrecognized-problem",
+      "status": "passed",
+      "durationMs": 591
+    },
+    {
+      "lane": "left-to-right",
+      "name": "recipient-admission-withdrawal-and-restart",
+      "status": "passed",
+      "durationMs": 874
+    },
+    {
+      "lane": "right-to-left",
+      "name": "explicit-capabilities",
+      "status": "passed",
+      "durationMs": 10
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-binary-message-and-local-custody",
+      "status": "passed",
+      "durationMs": 234
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-unknown-content-type",
+      "status": "passed",
+      "durationMs": 207
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-empty-payload",
+      "status": "passed",
+      "durationMs": 227
+    },
+    {
+      "lane": "right-to-left",
+      "name": "maximum-payload",
+      "status": "passed",
+      "durationMs": 250
+    },
+    {
+      "lane": "right-to-left",
+      "name": "maximum-envelope-body",
+      "status": "passed",
+      "durationMs": 257
+    },
+    {
+      "lane": "right-to-left",
+      "name": "fresh-process-fresh-nonce-retry",
+      "status": "passed",
+      "durationMs": 428
+    },
+    {
+      "lane": "right-to-left",
+      "name": "changed-intent-conflict",
+      "status": "passed",
+      "durationMs": 256
+    },
+    {
+      "lane": "right-to-left",
+      "name": "exact-byte-retry-equivalence",
+      "status": "passed",
+      "durationMs": 261
+    },
+    {
+      "lane": "right-to-left",
+      "name": "concurrent-identical-intents",
+      "status": "passed",
+      "durationMs": 252
+    },
+    {
+      "lane": "right-to-left",
+      "name": "authenticated-request-replay",
+      "status": "passed",
+      "durationMs": 413
+    },
+    {
+      "lane": "right-to-left",
+      "name": "replay-survives-restart",
+      "status": "passed",
+      "durationMs": 492
+    },
+    {
+      "lane": "right-to-left",
+      "name": "unknown-profile",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-recipient-attribution",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-source-attribution",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-owner-attribution",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "unknown-envelope-control",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "invalid-uri-percent-escape",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "invalid-media-type",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "noncanonical-payload-base64",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "noncanonical-base64-pad-bits",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "expired-message",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "excessive-message-lifetime",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "fractional-message-expiry",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "payload-over-limit",
+      "status": "passed",
+      "durationMs": 11
+    },
+    {
+      "lane": "right-to-left",
+      "name": "duplicate-envelope-member",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "invalid-utf8",
+      "status": "passed",
+      "durationMs": 6
+    },
+    {
+      "lane": "right-to-left",
+      "name": "byte-order-mark",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "lone-unicode-surrogate",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-delegation-audience",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-delegation-scope",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "expired-delegation",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "future-delegation",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "right-to-left",
+      "name": "excessive-delegation-lifetime",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "delegation-unknown-claim",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "unknown-owner-pin",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "jwt-none-algorithm",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "jwt-polymorphic-algorithm",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "jwt-algorithm-confusion",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "forged-owner-signature",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "duplicate-jwt-member",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "fractional-jwt-time-token",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "private-jwk-material",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "issuer-owner-key-cannot-be-actor-key",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "other-pinned-owner-key-cannot-be-actor-key",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "expired-signature",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "future-signature",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "right-to-left",
+      "name": "excessive-signature-lifetime",
+      "status": "passed",
+      "durationMs": 9
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-signature-algorithm",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-signature-domain",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "missing-digest-coverage",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-target-uri",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "body-tampering",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "forged-actor-signature",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "wrong-content-digest",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "right-to-left",
+      "name": "identity-without-recipient-admission",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "lane": "right-to-left",
+      "name": "actor-cannot-withdraw-owner-delegation",
+      "status": "passed",
+      "durationMs": 166
+    },
+    {
+      "lane": "right-to-left",
+      "name": "foreign-owner-cannot-withdraw-recipient-admission",
+      "status": "passed",
+      "durationMs": 158
+    },
+    {
+      "lane": "right-to-left",
+      "name": "unsupported-envelope-media-type",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "unsupported-content-encoding",
+      "status": "passed",
+      "durationMs": 3
+    },
+    {
+      "lane": "right-to-left",
+      "name": "body-over-limit",
+      "status": "passed",
+      "durationMs": 2
+    },
+    {
+      "lane": "right-to-left",
+      "name": "refusals-created-no-handoffs",
+      "status": "passed",
+      "durationMs": 102
+    },
+    {
+      "lane": "right-to-left",
+      "name": "duplicate-signature-header",
+      "status": "passed",
+      "durationMs": 94
+    },
+    {
+      "lane": "right-to-left",
+      "name": "duplicate-content-length",
+      "status": "passed",
+      "durationMs": 87
+    },
+    {
+      "lane": "right-to-left",
+      "name": "transfer-encoding",
+      "status": "passed",
+      "durationMs": 104
+    },
+    {
+      "lane": "right-to-left",
+      "name": "oversized-headers",
+      "status": "passed",
+      "durationMs": 97
+    },
+    {
+      "lane": "right-to-left",
+      "name": "interrupted-upload-crash-and-retry",
+      "status": "passed",
+      "durationMs": 379
+    },
+    {
+      "lane": "right-to-left",
+      "name": "lost-acceptance-response-crash-and-retry",
+      "status": "passed",
+      "durationMs": 534
+    },
+    {
+      "lane": "right-to-left",
+      "name": "owner-signed-withdrawal-and-restart",
+      "status": "passed",
+      "durationMs": 1029
+    },
+    {
+      "lane": "right-to-left",
+      "name": "lost-withdrawal-response-crash-and-retry",
+      "status": "passed",
+      "durationMs": 936
+    },
+    {
+      "lane": "right-to-left",
+      "name": "control-intent-conflict",
+      "status": "passed",
+      "durationMs": 309
+    },
+    {
+      "lane": "right-to-left",
+      "name": "cross-route-control-intent-conflict",
+      "status": "passed",
+      "durationMs": 220
+    },
+    {
+      "lane": "right-to-left",
+      "name": "cross-route-owner-nonce-replay",
+      "status": "passed",
+      "durationMs": 249
+    },
+    {
+      "lane": "right-to-left",
+      "name": "preemptive-withdrawal-survives-restart",
+      "status": "passed",
+      "durationMs": 399
+    },
+    {
+      "lane": "right-to-left",
+      "name": "unauthenticated-attempt-cannot-reserve-nonce",
+      "status": "passed",
+      "durationMs": 243
+    },
+    {
+      "lane": "right-to-left",
+      "name": "actor-nonce-scope-spans-delegations",
+      "status": "passed",
+      "durationMs": 382
+    },
+    {
+      "lane": "right-to-left",
+      "name": "accepted-intent-expiry-is-a-current-refusal",
+      "status": "passed",
+      "durationMs": 1574
+    },
+    {
+      "lane": "right-to-left",
+      "name": "actor-key-rotation-and-prior-intent",
+      "status": "passed",
+      "durationMs": 838
+    },
+    {
+      "lane": "right-to-left",
+      "name": "withdrawal-during-inflight-delivery",
+      "status": "passed",
+      "durationMs": 283
+    },
+    {
+      "lane": "right-to-left",
+      "name": "signature-expires-during-inflight-delivery",
+      "status": "passed",
+      "durationMs": 2065
+    },
+    {
+      "lane": "right-to-left",
+      "name": "remote-withdrawal-pending-until-receiver-commit",
+      "status": "passed",
+      "durationMs": 566
+    },
+    {
+      "lane": "right-to-left",
+      "name": "bounded-live-messages",
+      "status": "passed",
+      "durationMs": 773
+    },
+    {
+      "lane": "right-to-left",
+      "name": "bounded-live-nonces",
+      "status": "passed",
+      "durationMs": 957
+    },
+    {
+      "lane": "right-to-left",
+      "name": "bounded-live-controls",
+      "status": "passed",
+      "durationMs": 635
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-hostname",
+      "status": "passed",
+      "durationMs": 622
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-untrusted-ca",
+      "status": "passed",
+      "durationMs": 650
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-redirect",
+      "status": "passed",
+      "durationMs": 628
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-malformed",
+      "status": "passed",
+      "durationMs": 619
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-oversized",
+      "status": "passed",
+      "durationMs": 633
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-mismatched-digest",
+      "status": "passed",
+      "durationMs": 632
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-mismatched-recipient",
+      "status": "passed",
+      "durationMs": 632
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-status-duplicate-mismatch",
+      "status": "passed",
+      "durationMs": 618
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-fractional-acceptance-time",
+      "status": "passed",
+      "durationMs": 646
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-malformed-control",
+      "status": "passed",
+      "durationMs": 622
+    },
+    {
+      "lane": "right-to-left",
+      "name": "native-client-refuses-unrecognized-problem",
+      "status": "passed",
+      "durationMs": 620
+    },
+    {
+      "lane": "right-to-left",
+      "name": "recipient-admission-withdrawal-and-restart",
+      "status": "passed",
+      "durationMs": 712
+    }
+  ]
+}
