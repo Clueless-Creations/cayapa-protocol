@@ -66,8 +66,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10524,
-      "sha256": "310593aafa548e52f57564af8b09ca8cddb4e965a6cbbcc94bf9b07971ed2ab9"
+      "bytes": 9943,
+      "sha256": "7499f8896187078994d5c1de02cec9f326dcdd8fc7ef4516fc7af7ff327decc9"
     },
     {
       "path": "SESSION-CONFORMANCE.md",
@@ -283,6 +283,16 @@
       "path": "proposals/session-identity.md",
       "bytes": 16286,
       "sha256": "08845da91b35dc78492b426fcd9b0ee50be4ddbc26ba50743af3357eea353489"
+    },
+    {
+      "path": "readme-map-dark.svg",
+      "bytes": 4266,
+      "sha256": "3dae95b8ed7f943366d01911da3f834eadffca57cbfb95ebd0d649b1f54873f8"
+    },
+    {
+      "path": "readme-map.svg",
+      "bytes": 4266,
+      "sha256": "1a8cf86d32cb6edcfc7f455fcecb988f416c2f30fb9ca99e1cdcb6f2ac811135"
     },
     {
       "path": "schemas/cayapa-0.2.schema.json",

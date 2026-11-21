@@ -1,19 +1,25 @@
-# Cayapa protocol
+<div align="center">
 
-Cayapa defines native agent-to-agent message exchange with accountable authorship, explicit destinations, current communication authority and honest delivery outcomes. Message content is opaque to the protocol. Shared history, conversations, tasks, social relationships, marketplaces and visual surfaces can build on that exchange without becoming prerequisites for it.
+# Cayapa
 
-Two independent hosts can implement Cayapa over standard Internet infrastructure, using their own identities and persistence. Neither needs a Cayapa-operated service, proprietary relay, MCP, CLI, official SDK or separate operator service. An **operator** is the role that implements an endpoint; an agent host can embed that role.
+**A protocol for agents to exchange messages across independent hosts.**
 
-This standalone bundle contains the new **core 0.3 and direct/0.3 contracts**, alongside the unchanged **durable-conversation/0.2 wire contract**. A specification is not an interoperability result. The [direct evidence report](DIRECT-CONFORMANCE.md) records the independent exchange and negative cases actually exercised; [legacy conformance](CONFORMANCE.md) records the separate 0.2 evidence and limitations.
+*Cayapa*: neighbors joining forces to get a job done together.
 
-**Selected host lifecycle contract:** [host-session/1](extensions/host-session-1.md) maps each separately addressable logical host session to an existing actor URI. It defines distinct new/fork addresses, stable resume, protected owner administration, key rotation, terminal local retirement and retained exact outgoing intents. It adds no delivery field, token, public enrollment operation or advertised wire capability. Native startup and optional bootstrap remain separate implementation paths; manual introduction remains supported. The [original proposal](proposals/session-identity.md) is retained as history; [session evidence](SESSION-CONFORMANCE.md) is separate from the existing wire proof.
+[Read the spec](core/0.3.md) · [Implement Cayapa](IMPLEMENTING.md) · [Run conformance](conformance/README.md)
 
-The [architecture status table](architecture.md#current-decisions-open-work-and-evidence) distinguishes passed local conformance from unobserved external implementation and real-host evidence. Standalone publication of this specification, the [implementer guide](IMPLEMENTING.md) and conformance suite is a separate release gate from optional packages, connectors, SDKs and hosting. A copied bundle is not an external publication event.
+</div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="architecture-dark.svg">
-  <img src="architecture.svg" alt="Cayapa message core implemented by independent hosts, with direct exchange and an optional durable-conversation profile. Each host owns its identity and state; a visual surface is optional." width="600">
+  <source media="(prefers-color-scheme: dark)" srcset="readme-map-dark.svg">
+  <img src="readme-map.svg" alt="Two independent hosts exchange a signed message and delivery outcome over HTTPS. Each keeps its own keys and state. Shared conversation history is an optional profile." width="720">
 </picture>
+
+Your assistant can send a message to someone else's agent without joining the same workspace or using the same provider. The sender's owner delegates authority, the recipient decides what to admit, and the protocol distinguishes **accepted**, **rejected**, and **unknown**. Acceptance means the recipient took custody, not that a model read or acted on the message.
+
+**Direct/0.3** needs no Cayapa-operated service, proprietary relay, MCP, CLI, official SDK or shared transcript. **Durable-conversation/0.2** preserves the existing shared-history contract as a separate profile. Both keep message content opaque to the protocol.
+
+This repo contains the contracts and test suite, not a hosted service. [Node/Python lab results](DIRECT-CONFORMANCE.md) and [0.2 compatibility evidence](CONFORMANCE.md) are not evidence of external adoption. See the [full architecture](architecture.md) for responsibilities, evidence and open work.
 
 ## Choose a contract
 
@@ -30,6 +36,8 @@ The [architecture status table](architecture.md#current-decisions-open-work-and-
 | Inspect the evidence and its limits | [Direct evidence](DIRECT-CONFORMANCE.md) and [0.2 evidence](CONFORMANCE.md) |
 | Verify a copied bundle | `python3 check.py` and the [manifest](manifest.json) |
 | Review compatibility and release identities | [Changelog](CHANGELOG.md) |
+
+**Host-session/1** defines distinct addresses for new or forked sessions, stable addresses on resume, protected owner administration, key rotation, retirement and retained outgoing intents. It adds no delivery field, token, public enrollment operation or advertised wire capability. Native startup and optional bootstrap are implementation paths; manual introduction still works. See the [original proposal](proposals/session-identity.md) and [separate session evidence](SESSION-CONFORMANCE.md).
 
 Core, profile, binding, security and implementation package versions are distinct. Direct/0.3 does not reinterpret a 0.2 contribution or upgrade an existing server by changing its capability label. Existing HTTP paths, MCP behavior, stored versions, retry digests and receipts remain defined by the 0.2 specification. The existing application may continue to advertise and implement only that profile.
 
